@@ -1,0 +1,39 @@
+# This file contains metadata for your plugin. Since 
+# version 2.0 of QGIS this is the proper way to supply 
+# information about a plugin. The old method of 
+# embedding metadata in __init__.py will 
+# is no longer supported since version 2.0.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=qLidar
+qgisMinimumVersion=3.14
+description=QGIS plugin to use point clouds from LIDAR or Photogrammetry
+version=0.1
+author=David Hernandez Lopez
+email=david.hernandez@uclm.es
+
+about=QGIS plugin to use point clouds from LIDAR or Photogrammetry
+
+tracker=https://github.com/UCLM-PAFyC/qLidar
+repository=https://github.com/UCLM-PAFyC/qLidar
+# End of mandatory metadata
+
+# Recommended items:
+
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=lidar,photogrammetry,point cloud
+
+homepage=https://github.com/UCLM-PAFyC/qLidar
+category=Vector
+icon=icon.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+

@@ -1,0 +1,17 @@
+**/debug
+**/release
+**/__pycache__
+**/.idea
+
+**/*.obj
+**/*.pro.user
+**/*.pro.user.*
+**/egm08_25.gtx
+**/qLidar.ini
+**/*.pyc
+
+**/*.svn-base
+**/.svn
+
+!.gitignore
+!.htaccess
