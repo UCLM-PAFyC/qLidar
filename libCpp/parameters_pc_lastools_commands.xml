@@ -187,7 +187,7 @@
         <Value>E:\dev\src\python\qgis3\qLidar\libCpp/geoids_lastools/EGM08_REDNAP_25830.laz</Value>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_first_lasground_ignore_class</Code>
         <Enabled>Yes</Enabled>
         <Tag>-ignore_class</Tag>
@@ -200,7 +200,7 @@
         <MinimumValue>0;0</MinimumValue>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_first_lasheight_classify_above</Code>
         <Enabled>Yes</Enabled>
         <Tag>-classify_above</Tag>
@@ -214,7 +214,7 @@
         <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_first_lasheight_classify_below</Code>
         <Enabled>Yes</Enabled>
         <Tag>-classify_below</Tag>
@@ -228,7 +228,7 @@
         <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_first_lasmerge_drop_withheld</Code>
         <Enabled>Yes</Enabled>
         <Tag>-drop_withheld</Tag>
@@ -238,7 +238,7 @@
         <Unit>adimensional</Unit>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_first_lasthin_classify_as</Code>
         <Enabled>Yes</Enabled>
         <Tag>-classify_as</Tag>
@@ -251,7 +251,7 @@
         <MinimumValue>0</MinimumValue>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_first_lasthin_percentile</Code>
         <Enabled>Yes</Enabled>
         <Tag>-percentile</Tag>
@@ -265,7 +265,7 @@
         <PrintPrecision>1</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_first_lasthin_step</Code>
         <Enabled>Yes</Enabled>
         <Tag>-step</Tag>
@@ -279,7 +279,7 @@
         <PrintPrecision>1</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_las2las_keep_class</Code>
         <Enabled>Yes</Enabled>
         <Tag>-keep_class</Tag>
@@ -292,7 +292,7 @@
         <MinimumValue>0</MinimumValue>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_lasnoise_classify_as</Code>
         <Enabled>Yes</Enabled>
         <Tag>-classify_as</Tag>
@@ -305,7 +305,7 @@
         <MinimumValue>0</MinimumValue>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_lasnoise_ignore_class</Code>
         <Enabled>Yes</Enabled>
         <Tag>-ignore_class</Tag>
@@ -318,7 +318,7 @@
         <MinimumValue>0</MinimumValue>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_lasnoise_isolated</Code>
         <Enabled>Yes</Enabled>
         <Tag>-isolated</Tag>
@@ -331,7 +331,7 @@
         <MinimumValue>1</MinimumValue>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_lasnoise_step_xy</Code>
         <Enabled>Yes</Enabled>
         <Tag>-step_xy</Tag>
@@ -345,7 +345,7 @@
         <PrintPrecision>1</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_lasnoise_step_z</Code>
         <Enabled>Yes</Enabled>
         <Tag>-step_z</Tag>
@@ -359,7 +359,7 @@
         <PrintPrecision>1</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_lastile_cores</Code>
         <Enabled>Yes</Enabled>
         <Tag>-cores</Tag>
@@ -372,7 +372,7 @@
         <MinimumValue>1</MinimumValue>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_lastile_tile_buffer</Code>
         <Enabled>Yes</Enabled>
         <Tag>-buffer</Tag>
@@ -386,7 +386,7 @@
         <PrintPrecision>1</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_lastile_tile_size</Code>
         <Enabled>Yes</Enabled>
         <Tag>-tile_size</Tag>
@@ -400,7 +400,7 @@
         <PrintPrecision>1</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_second_lasground_bulge</Code>
         <Enabled>Yes</Enabled>
         <Tag>-bulge</Tag>
@@ -414,7 +414,7 @@
         <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_second_lasground_ignore_class</Code>
         <Enabled>Yes</Enabled>
         <Tag>-ignore_class</Tag>
@@ -427,7 +427,7 @@
         <MinimumValue>0;0</MinimumValue>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_second_lasground_town</Code>
         <Enabled>Yes</Enabled>
         <Tag>-town</Tag>
@@ -437,7 +437,7 @@
         <Unit>adimensional</Unit>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_second_lasheight_classification</Code>
         <Enabled>Yes</Enabled>
         <Tag>-classification</Tag>
@@ -450,7 +450,7 @@
         <MinimumValue>1</MinimumValue>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_second_lasheight_drop_below</Code>
         <Enabled>Yes</Enabled>
         <Tag>-drop_below</Tag>
@@ -464,7 +464,7 @@
         <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_second_lasmerge_drop_withheld</Code>
         <Enabled>Yes</Enabled>
         <Tag>-drop_withheld</Tag>
@@ -474,7 +474,7 @@
         <Unit>adimensional</Unit>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_second_lasthin_classify_as</Code>
         <Enabled>Yes</Enabled>
         <Tag>-classify_as</Tag>
@@ -487,7 +487,7 @@
         <MinimumValue>0</MinimumValue>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_second_lasthin_ignore_class</Code>
         <Enabled>Yes</Enabled>
         <Tag>-ignore_class</Tag>
@@ -500,7 +500,7 @@
         <MinimumValue>0</MinimumValue>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_second_lasthin_step</Code>
         <Enabled>Yes</Enabled>
         <Tag>-step</Tag>
@@ -514,7 +514,7 @@
         <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_temporal_path</Code>
         <Enabled>Yes</Enabled>
         <Tag></Tag>
@@ -522,10 +522,10 @@
         <Description>Empty base path for auxiliary temporal folders</Description>
         <PrintSize>200</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>D:/qLidarProjects/IES_Almassora/temp</Value>
+        <Value>D:/qLidarProjects/acopio_arcillas/temp</Value>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_third_lasthin_amd</Code>
         <Enabled>Yes</Enabled>
         <Tag></Tag>
@@ -539,7 +539,7 @@
         <PrintPrecision>1</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_third_lasthin_avt</Code>
         <Enabled>Yes</Enabled>
         <Tag>-adaptive</Tag>
@@ -553,7 +553,7 @@
         <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
-        <Command>Ground from photogrammetry</Command>
+        <Command>Classify ground from photogrammetry</Command>
         <Code>gfp_third_lasthin_ignore_class</Code>
         <Enabled>Yes</Enabled>
         <Tag>-ignore_class</Tag>
@@ -578,16 +578,14 @@
     </Parameter>
     <Parameter>
         <Command>las2dem64</Command>
-        <Code>las2dem_class</Code>
+        <Code>las2dem_classes</Code>
         <Enabled>Yes</Enabled>
         <Tag>-keep_class</Tag>
-        <Type>Integer number</Type>
-        <Description>Value for no data value</Description>
-        <PrintSize>10</PrintSize>
+        <Type>Text</Type>
+        <Description>Classes to use (separated by character ;), empty for all</Description>
+        <PrintSize>20</PrintSize>
         <Unit>adimensional</Unit>
         <Value>2</Value>
-        <MaximumValue>33</MaximumValue>
-        <MinimumValue>1</MinimumValue>
     </Parameter>
     <Parameter>
         <Command>las2dem64</Command>
@@ -611,7 +609,7 @@
         <Description>Grid size, spatial resolution, of DTM. 0.2 for uav lidar, 2.0 for PNOA-LIDAR</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>1.0</Value>
+        <Value>0.2</Value>
         <MaximumValue>2.0</MaximumValue>
         <MinimumValue>0.0</MinimumValue>
         <PrintPrecision>1</PrintPrecision>
