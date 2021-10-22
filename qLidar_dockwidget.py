@@ -2213,6 +2213,9 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 filters+=";*."
         filters += ";*.tif"
         filters += ";*.txt"
+        filters += ";*.shp"
+        filters += ";*.kml"
+        filters += ";*.wkt"
         filters+=")"
         fileName, _ = QFileDialog.getSaveFileName(self,title,self.path,filters)
         if fileName:
