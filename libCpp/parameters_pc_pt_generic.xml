@@ -49,7 +49,7 @@
     <Parameter>
         <Command>ProjectParameters</Command>
         <Code>GpsTime</Code>
-        <Enabled>Yes</Enabled>
+        <Enabled>No</Enabled>
         <Tag>Store gps time</Tag>
         <Type>Value list</Type>
         <Description>Store gps time</Description>
@@ -61,7 +61,7 @@
     <Parameter>
         <Command>ProjectParameters</Command>
         <Code>Intensity</Code>
-        <Enabled>Yes</Enabled>
+        <Enabled>No</Enabled>
         <Tag>Store intensity</Tag>
         <Type>Value list</Type>
         <Description>Store intensity</Description>
@@ -73,7 +73,7 @@
     <Parameter>
         <Command>ProjectParameters</Command>
         <Code>Nir</Code>
-        <Enabled>Yes</Enabled>
+        <Enabled>No</Enabled>
         <Tag>Store nir</Tag>
         <Type>Value list</Type>
         <Description>Store nir</Description>
@@ -85,7 +85,7 @@
     <Parameter>
         <Command>ProjectParameters</Command>
         <Code>Return</Code>
-        <Enabled>Yes</Enabled>
+        <Enabled>No</Enabled>
         <Tag>Store return</Tag>
         <Type>Value list</Type>
         <Description>Store return</Description>
@@ -97,7 +97,7 @@
     <Parameter>
         <Command>ProjectParameters</Command>
         <Code>Returns</Code>
-        <Enabled>Yes</Enabled>
+        <Enabled>No</Enabled>
         <Tag>Store returns</Tag>
         <Type>Value list</Type>
         <Description>Store returns</Description>
@@ -109,7 +109,7 @@
     <Parameter>
         <Command>ProjectParameters</Command>
         <Code>SourceId</Code>
-        <Enabled>Yes</Enabled>
+        <Enabled>No</Enabled>
         <Tag>Store source id</Tag>
         <Type>Value list</Type>
         <Description>Store source id</Description>
@@ -121,7 +121,7 @@
     <Parameter>
         <Command>ProjectParameters</Command>
         <Code>UserData</Code>
-        <Enabled>Yes</Enabled>
+        <Enabled>No</Enabled>
         <Tag>Store user data</Tag>
         <Type>Value list</Type>
         <Description>Store user data</Description>

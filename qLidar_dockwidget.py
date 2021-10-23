@@ -580,6 +580,16 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.setWindowTitle(self.windowTitle)
             msgBox.setText(msg)
             msgBox.exec_()
+        if ret[1] == "True":
+            msg = "Reached the maximum number of points\n"
+            msg += "If you need to use more points\n"
+            msg += "contact the author:\n"
+            msg += qLidarDefinitions.CONST_AUTHOR_MAIL
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText(msg)
+            msgBox.exec_()
         ret = self.iPyProject.pctGetMaximumDensity(self.projectPath)
         if ret[0] == "False":
             msgBox = QMessageBox(self)
@@ -1100,6 +1110,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         self.visibleClass12CheckBox.clicked.connect(self.actionSetVisiblePoints)
 
         self.multiThreadingCheckBox.stateChanged.connect(self.selectMultiThreading)
+        self.multiThreadingCheckBox.setChecked(False)
 
         if not self.isqLidarPlugin:
             self.projectsComboBox.setEnabled(False)
@@ -1387,6 +1398,16 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.exec_()
             self.projectsComboBox.setCurrentIndex(0)
             return
+        if ret[1] == "True":
+            msg = "Reached the maximum number of points\n"
+            msg += "If you need to use more points\n"
+            msg += "contact the author:\n"
+            msg += qLidarDefinitions.CONST_AUTHOR_MAIL
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText(msg)
+            msgBox.exec_()
         ret = self.iPyProject.pctGetProjectCrsEpsgCode(projectPath)
         if ret[0] == "False":
             msgBox = QMessageBox(self)
@@ -1555,12 +1576,14 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         useMultiProcess=self.multiThreadingCheckBox.isChecked()
         ret = self.iPyProject.pctSetMultiProcess(useMultiProcess)
         if ret[0] == "False":
+            self.multiThreadingCheckBox.setChecked(False)
+            self.multiThreadingCheckBox.setEnabled(False)
             msgBox = QMessageBox(self)
             msgBox.setIcon(QMessageBox.Information)
             msgBox.setWindowTitle(self.windowTitle)
             msgBox.setText("Error:\n"+ret[1])
             msgBox.exec_()
-            self.projectsComboBox.setCurrentIndex(0)
+            # self.projectsComboBox.setCurrentIndex(0)
             return
 
     def selectPointsFromTilesByRectangle(self):

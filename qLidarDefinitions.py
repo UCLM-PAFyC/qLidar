@@ -9,6 +9,7 @@
 
 __author__ = 'david.hernandez@uclm.es'
 
+CONST_AUTHOR_MAIL = 'david.hernandez@uclm.es'
 CONST_SETTINGS_PLUGIN_NAME = "qLidar"
 CONST_SETTINGS_FILE_NAME = "qLidar.ini"
 CONST_PROGRAM_NAME = "qLidar:"
