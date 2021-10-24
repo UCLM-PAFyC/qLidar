@@ -590,6 +590,26 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.setWindowTitle(self.windowTitle)
             msgBox.setText(msg)
             msgBox.exec_()
+        # ret = self.iPyProject.pctGetMaximumDensity(self.projectPath)
+        # if ret[0] == "False":
+        #     msgBox = QMessageBox(self)
+        #     msgBox.setIcon(QMessageBox.Information)
+        #     msgBox.setWindowTitle(self.windowTitle)
+        #     msgBox.setText("Error:\n"+ret[1])
+        #     msgBox.exec_()
+        #     self.projectsComboBox.setCurrentIndex(0)
+        #     return
+        # self.maximumDensity = ret[1]
+        # if self.maximumDensity > 0:
+        #     dblMinimumScale = 1000.0/sqrt(self.maximumDensity)*qLidarDefinitions.CONST_POINTS_BY_MILIMETER
+        #     for scale in self.scales:
+        #         if scale < dblMinimumScale:
+        #             self.minimumScale = scale
+        #             if self.minimumScale < self.minimumValueForMinimumScale:
+        #                 self.minimumScale = self.minimumValueForMinimumScale
+        #             break
+        # else:
+        #     self.minimumScale = self.scales[3]
         ret = self.iPyProject.pctGetMaximumDensity(self.projectPath)
         if ret[0] == "False":
             msgBox = QMessageBox(self)
@@ -599,17 +619,31 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.exec_()
             self.projectsComboBox.setCurrentIndex(0)
             return
+        msgBox = QMessageBox(self)
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setWindowTitle(self.windowTitle)
+        strText = ''
         self.maximumDensity = ret[1]
         if self.maximumDensity > 0:
+            self.minimumScale = self.scales[0]
             dblMinimumScale = 1000.0/sqrt(self.maximumDensity)*qLidarDefinitions.CONST_POINTS_BY_MILIMETER
             for scale in self.scales:
                 if scale < dblMinimumScale:
                     self.minimumScale = scale
-                    if self.minimumScale < self.minimumValueForMinimumScale:
-                        self.minimumScale = self.minimumValueForMinimumScale
+                else:
                     break
+            if self.minimumScale < self.minimumValueForMinimumScale:
+                self.minimumScale = self.minimumValueForMinimumScale
+            strText = "Maximum density: " + str(self.maximumDensity)
+            strText += "\nMinimum scale: 1/" + str(self.minimumScale)
         else:
-            self.minimumScale = self.scales[3]
+            # self.minimumScale = self.scales[0]
+            strText = "There are no points in the project"
+            strText += "\nMinimum scale: 1/" + str(self.minimumScale)
+        msgBox.setText(strText)
+        msgBox.exec_()
+        # self.projectPath = projectPath
+        self.updateMinScales()
         tilesTableName = qLidarDefinitions.CONST_SPATIALITE_LAYERS_TILES_TABLE_NAME
         self.loadTilesLayer()
         layerList = QgsProject.instance().mapLayersByName(tilesTableName)
@@ -1433,6 +1467,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         strText = ''
         self.maximumDensity = ret[1]
         if self.maximumDensity > 0:
+            self.minimumScale = self.scales[0]
             dblMinimumScale = 1000.0/sqrt(self.maximumDensity)*qLidarDefinitions.CONST_POINTS_BY_MILIMETER
             for scale in self.scales:
                 if scale < dblMinimumScale:
@@ -1444,7 +1479,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             strText = "Maximum density: " + str(self.maximumDensity)
             strText += "\nMinimum scale: 1/" + str(self.minimumScale)
         else:
-            self.minimumScale = self.scales[0]
+            # self.minimumScale = self.scales[0]
             strText = "There are no points in the project"
             strText += "\nMinimum scale: 1/" + str(self.minimumScale)
         msgBox.setText(strText)
