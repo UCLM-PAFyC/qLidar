@@ -36,7 +36,6 @@ os.environ["PATH"] += os.pathsep + libCppPath
 from libCpp.libPyPointCloud3D import IPyPC3DProject
 from . import qLidarDefinitions
 
-
 class qLidar:
     """QGIS Plugin Implementation."""
 
