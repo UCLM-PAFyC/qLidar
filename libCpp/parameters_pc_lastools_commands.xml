@@ -707,7 +707,7 @@
         <Description>Shapefile for clipping (Polygon)</Description>
         <PrintSize>200</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>D:/qLidarProjects/IndustrialParkCampollanoAB/data/roi/roi_25830.shp</Value>
+        <Value>C:/CursoCEDEX3D/CasosPracticos/PoligonoIndustrialAB/roi/roi_25830.shp</Value>
     </Parameter>
     <Parameter>
         <Command>lasclip64</Command>

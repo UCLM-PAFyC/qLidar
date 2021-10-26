@@ -1,4 +1,4 @@
 setlocal
 cd "E:/dev/src/python/qgis3/qLidar/libCpp"
-C:/LAStools2021/bin/las2dem64 -i D:/qLidarProjects/IndustrialParkCampollanoAB/data/lidar_2009/pnoa_lidar_2009.laz -keep_class 2 6 -nodata -9999 -step 1.0 -o D:/qLidarProjects/IndustrialParkCampollanoAB/data/lidar_2009/pnoa_lidar_2009_dsm_building.tif
+C:/LAStools2021/bin/lasboundary64 -i C:/CursoCEDEX3D/CasosPracticos/PoligonoIndustrialAB/pnoa_lidar_2017.laz   -keep_class 6 -disjoint -concavity 3.0 -o C:/CursoCEDEX3D/CasosPracticos/PoligonoIndustrialAB/pnoa_lidar_2017_buildings.shp
 endlocal

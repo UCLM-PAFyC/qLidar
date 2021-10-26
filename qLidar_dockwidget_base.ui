@@ -79,7 +79,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="projectDefinitionPage">
        <property name="geometry">
@@ -964,8 +964,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>514</width>
-         <height>504</height>
+         <width>555</width>
+         <height>542</height>
         </rect>
        </property>
        <attribute name="label">
@@ -1533,7 +1533,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>:/plugins/point_cloud_3d/icons/mActionSelectRectangle.png</normaloff>:/plugins/point_cloud_3d/icons/mActionSelectRectangle.png</iconset>
+                   <normaloff>:/plugins/qLidar/icons/mActionSelectRectangle.png</normaloff>:/plugins/qLidar/icons/mActionSelectRectangle.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1556,7 +1556,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>:/plugins/point_cloud_3d/icons/mActionSelectPolygon.png</normaloff>:/plugins/point_cloud_3d/icons/mActionSelectPolygon.png</iconset>
+                   <normaloff>:/plugins/qLidar/icons/mActionSelectPolygon.png</normaloff>:/plugins/qLidar/icons/mActionSelectPolygon.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1579,7 +1579,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>:/plugins/point_cloud_3d/icons/mActionSelectFreehand.png</normaloff>:/plugins/point_cloud_3d/icons/mActionSelectFreehand.png</iconset>
+                   <normaloff>:/plugins/qLidar/icons/mActionSelectFreehand.png</normaloff>:/plugins/qLidar/icons/mActionSelectFreehand.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1720,7 +1720,7 @@
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>:/plugins/point_cloud_3d/icons/mActionSelectRectangle3D.png</normaloff>:/plugins/point_cloud_3d/icons/mActionSelectRectangle3D.png</iconset>
+                 <normaloff>:/plugins/qLidar/icons/mActionSelectRectangle3D.png</normaloff>:/plugins/qLidar/icons/mActionSelectRectangle3D.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -1743,7 +1743,7 @@
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>:/plugins/point_cloud_3d/icons/mActionSelectPolygon3D.png</normaloff>:/plugins/point_cloud_3d/icons/mActionSelectPolygon3D.png</iconset>
+                 <normaloff>:/plugins/qLidar/icons/mActionSelectPolygon3D.png</normaloff>:/plugins/qLidar/icons/mActionSelectPolygon3D.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -1766,7 +1766,7 @@
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>:/plugins/point_cloud_3d/icons/mActionSelectFreehand3D.png</normaloff>:/plugins/point_cloud_3d/icons/mActionSelectFreehand3D.png</iconset>
+                 <normaloff>:/plugins/qLidar/icons/mActionSelectFreehand3D.png</normaloff>:/plugins/qLidar/icons/mActionSelectFreehand3D.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -1798,8 +1798,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>467</width>
-         <height>392</height>
+         <width>555</width>
+         <height>542</height>
         </rect>
        </property>
        <attribute name="label">
