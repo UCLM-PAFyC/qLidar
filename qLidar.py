@@ -228,14 +228,17 @@ class qLidar:
             egm08UncompressFileName = libCppPath + "/" + qLidarDefinitions.CONST_EGM08_25_FILE_NAME
             if not QFile.exists(egm08UncompressFileName):
                 egm08compressFileName = libCppPath + "/" + qLidarDefinitions.CONST_EGM08_25_COMPRESS_FILE_NAME
-                text = "Before opening the plugin for the first time"
-                text += "\nyou must unzip the file:\n"
-                text += egm08compressFileName
-                text += "\nin the same path using 7-zip, https://www.7-zip.org/"
-                text += "\n\nThe unzipped file could not be uploaded to Github due to account limitations"
+                text = "<p>Before opening the plugin for the first time<\p>"
+                text += "<p>you must download the file:</p>"
+                text += "<p><a href='https://github.com/UCLM-PAFyC/qLidar/tree/master/libCpp/egm08_25.7z'>egm08_25.7z</a></p>"
+                text += "<p>and unzip the file using: <a href='https://www.7-zip.org/'>7 zip</a></p>"
+                text += "<p>in the same path of the plugin, getting:</p>"
+                text += egm08UncompressFileName
+                text += "<p>The unzipped file could not be uploaded to Github due to account limitations</p>"
                 msgBox = QMessageBox()
                 msgBox.setIcon(QMessageBox.Information)
                 # msgBox.setWindowTitle(self.windowTitle)
+                msgBox.setTextFormat(Qt.RichText)
                 msgBox.setText(text)
                 msgBox.exec_()
                 return

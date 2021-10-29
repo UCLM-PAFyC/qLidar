@@ -173,7 +173,7 @@
         <Description>Empty base path for auxiliary temporal folders</Description>
         <PrintSize>200</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>D:/qLidarProjects/IES_Almassora/temp</Value>
+        <Value>C:/CursoCEDEX3D/CasosPracticos/ClasificacionEntornoUrbano/temp</Value>
     </Parameter>
     <Parameter>
         <Command>Ellipsoid to orthometric height conversion</Command>
@@ -522,7 +522,7 @@
         <Description>Empty base path for auxiliary temporal folders</Description>
         <PrintSize>200</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>D:/qLidarProjects/acopio_arcillas/temp</Value>
+        <Value>C:/CursoCEDEX3D/CasosPracticos/Cubicacion/temp</Value>
     </Parameter>
     <Parameter>
         <Command>Classify ground from photogrammetry</Command>
@@ -585,7 +585,7 @@
         <Description>Classes to use (separated by character ;), empty for all</Description>
         <PrintSize>20</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>2;6</Value>
+        <Value></Value>
     </Parameter>
     <Parameter>
         <Command>las2dem64</Command>
@@ -609,7 +609,7 @@
         <Description>Grid size, spatial resolution, of DTM. 0.2 for uav lidar, 2.0 for PNOA-LIDAR</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>1.0</Value>
+        <Value>0.1</Value>
         <MaximumValue>2.0</MaximumValue>
         <MinimumValue>0.0</MinimumValue>
         <PrintPrecision>1</PrintPrecision>
@@ -617,18 +617,18 @@
     <Parameter>
         <Command>lasboundary64</Command>
         <Code>lasboundary_additional_switches</Code>
-        <Enabled>Yes</Enabled>
+        <Enabled>No</Enabled>
         <Tag></Tag>
         <Type>Text</Type>
         <Description>Any additional valid tool-specific switches, according to LAStools documentation</Description>
         <PrintSize>100</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>-keep_class 6 -disjoint -concavity 3.0</Value>
+        <Value></Value>
     </Parameter>
     <Parameter>
         <Command>lasboundary64</Command>
         <Code>lasboundary_bb</Code>
-        <Enabled>No</Enabled>
+        <Enabled>Yes</Enabled>
         <Tag>-use_bb</Tag>
         <Type>Empty Text</Type>
         <Description>Use header bounding box instead of points to contruct an approximate polygon</Description>
@@ -786,13 +786,13 @@
     <Parameter>
         <Command>lasmerge64</Command>
         <Code>lasmerge_keep_classes</Code>
-        <Enabled>No</Enabled>
+        <Enabled>Yes</Enabled>
         <Tag>-keep_class</Tag>
         <Type>Text</Type>
         <Description>Classes to keep outside removing area, separated by a space. Disabled for all</Description>
         <PrintSize>10</PrintSize>
         <Unit>adimensional</Unit>
-        <Value></Value>
+        <Value>2</Value>
     </Parameter>
     <Parameter>
         <Command>lastile64</Command>

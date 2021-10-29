@@ -1,7 +1,7 @@
 Point Cloud File Management Project
 - Number of processes ......................................# 1
 - Process (CREATE_PCFM,ADD_PCFILE,ADD_ROI,WRITE_PCFS) ......# ADD_PCFILES
-  - PoinCloudFileManager path ..............................# "C:/CursoCEDEX3D/CasosPracticos/PoligonoIndustrialAB/qLidar2017"
+  - PoinCloudFileManager path ..............................# "C:/CursoCEDEX3D/CasosPracticos/Cubicacion/qLidar"
   - CRS (libCRS/EPSG/proj4/wkt) ............................# 25830
   - Number of files ........................................# 1
-  - File ...................................................# "C:/CursoCEDEX3D/CasosPracticos/PoligonoIndustrialAB/pnoa_lidar_2017.laz"
+  - File ...................................................# "C:/CursoCEDEX3D/CasosPracticos/Cubicacion/Cubicacion_ground.laz"
