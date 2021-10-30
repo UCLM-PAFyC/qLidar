@@ -522,7 +522,7 @@
         <Description>Empty base path for auxiliary temporal folders</Description>
         <PrintSize>200</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>C:/CursoCEDEX3D/CasosPracticos/Cubicacion/temp</Value>
+        <Value>C:/CursoCEDEX3D/CasosPracticos/LineaElectrica/UAV_Camera/temp</Value>
     </Parameter>
     <Parameter>
         <Command>Classify ground from photogrammetry</Command>
@@ -585,7 +585,7 @@
         <Description>Classes to use (separated by character ;), empty for all</Description>
         <PrintSize>20</PrintSize>
         <Unit>adimensional</Unit>
-        <Value></Value>
+        <Value>2</Value>
     </Parameter>
     <Parameter>
         <Command>las2dem64</Command>
@@ -609,7 +609,7 @@
         <Description>Grid size, spatial resolution, of DTM. 0.2 for uav lidar, 2.0 for PNOA-LIDAR</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>0.1</Value>
+        <Value>1.0</Value>
         <MaximumValue>2.0</MaximumValue>
         <MinimumValue>0.0</MinimumValue>
         <PrintPrecision>1</PrintPrecision>
@@ -707,7 +707,7 @@
         <Description>Shapefile for clipping (Polygon)</Description>
         <PrintSize>200</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>C:/CursoCEDEX3D/CasosPracticos/PoligonoIndustrialAB/roi/roi_25830.shp</Value>
+        <Value>C:/CursoCEDEX3D/CasosPracticos/LineaElectrica/roi_25830.shp</Value>
     </Parameter>
     <Parameter>
         <Command>lasclip64</Command>
@@ -786,7 +786,7 @@
     <Parameter>
         <Command>lasmerge64</Command>
         <Code>lasmerge_keep_classes</Code>
-        <Enabled>Yes</Enabled>
+        <Enabled>No</Enabled>
         <Tag>-keep_class</Tag>
         <Type>Text</Type>
         <Description>Classes to keep outside removing area, separated by a space. Disabled for all</Description>
