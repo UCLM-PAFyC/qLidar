@@ -23,7 +23,9 @@ UCLM - PAFyC, [http://pafyc.uclm.es](http://pafyc.uclm.es)
 USAL - TIDOP, [http://tidop.usal.es](http://tidop.usal.es)
 
 
-Beta version: 0.1, Minimum QGIS version: 3.4
+Beta version: 0.5, Minimum QGIS version: 3.4. Tested 3.4 - 3.16. 
+
+This version works for not MSI installers
 
 Operating system: Windows 10
 
@@ -33,7 +35,7 @@ https://3d.bk.tudelft.nl/liangliang/software.html
 Any use of this version is allowed without 
 responsibility for the author
 
-Video tutorial: https://youtu.be/ni-rUau5jBw
+Video tutorial (with different icon): https://youtu.be/ni-rUau5jBw
 
 Please report any bugs and enhancement ideas by email: david.hernandez@uclm.es
 

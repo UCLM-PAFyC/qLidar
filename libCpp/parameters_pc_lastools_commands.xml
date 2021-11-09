@@ -9,10 +9,10 @@
         <Description>Buffer for tiles</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>10.0</Value>
-        <MaximumValue>1000.0</MaximumValue>
-        <MinimumValue>1.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>10.00</Value>
+        <MaximumValue>1000.00</MaximumValue>
+        <MinimumValue>1.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify buidings and high vegetation</Command>
@@ -36,10 +36,10 @@
         <Description>Only points that are above this value ground are considered, default 2.0</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>1.5</Value>
-        <MaximumValue>50.0</MaximumValue>
-        <MinimumValue>0.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>1.50</Value>
+        <MaximumValue>50.00</MaximumValue>
+        <MinimumValue>0.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify buidings and high vegetation</Command>
@@ -60,10 +60,10 @@
         <Description>Grid cell points up to this standard deviation are potential roofs, default is 0.1</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>0.2</Value>
-        <MaximumValue>2.0</MaximumValue>
-        <MinimumValue>0.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>0.20</Value>
+        <MaximumValue>2.00</MaximumValue>
+        <MinimumValue>0.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify buidings and high vegetation</Command>
@@ -74,10 +74,10 @@
         <Description>Grid cell points above this standard deviation are potential vegetation, default is 0.4</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>0.4</Value>
-        <MaximumValue>2.0</MaximumValue>
-        <MinimumValue>0.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>0.40</Value>
+        <MaximumValue>2.00</MaximumValue>
+        <MinimumValue>0.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify buidings and high vegetation</Command>
@@ -108,10 +108,10 @@
         <Description>Grid cell size for planar / non-planar analysis, default 2.0</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>1.5</Value>
-        <MaximumValue>10.0</MaximumValue>
-        <MinimumValue>0.1</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>1.50</Value>
+        <MaximumValue>10.00</MaximumValue>
+        <MinimumValue>0.10</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify buidings and high vegetation</Command>
@@ -145,10 +145,10 @@
         <Description>Buffer for tiles</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>10.0</Value>
-        <MaximumValue>1000.0</MaximumValue>
-        <MinimumValue>1.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>10.00</Value>
+        <MaximumValue>1000.00</MaximumValue>
+        <MinimumValue>1.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify buidings and high vegetation</Command>
@@ -159,10 +159,10 @@
         <Description>Output tile size</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>50.0</Value>
-        <MaximumValue>10000.0</MaximumValue>
-        <MinimumValue>5.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>50.00</Value>
+        <MaximumValue>10000.00</MaximumValue>
+        <MinimumValue>5.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify buidings and high vegetation</Command>
@@ -259,10 +259,10 @@
         <Description>Percentile</Description>
         <PrintSize>20</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>20.0;20.0</Value>
-        <MaximumValue>100.0;100.0</MaximumValue>
-        <MinimumValue>0.0;0.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>20.00;20.00</Value>
+        <MaximumValue>100.00;100.00</MaximumValue>
+        <MinimumValue>0.00;0.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify ground from photogrammetry</Command>
@@ -273,10 +273,10 @@
         <Description>Adaptative maximum distance between points</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>0.9</Value>
-        <MaximumValue>100.0</MaximumValue>
-        <MinimumValue>0.1</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>0.90</Value>
+        <MaximumValue>100.00</MaximumValue>
+        <MinimumValue>0.10</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify ground from photogrammetry</Command>
@@ -339,10 +339,10 @@
         <Description>Size 2D 3x3 areas around a point to find outliers</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>2.0</Value>
-        <MaximumValue>100.0</MaximumValue>
-        <MinimumValue>0.1</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>2.00</Value>
+        <MaximumValue>100.00</MaximumValue>
+        <MinimumValue>0.10</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify ground from photogrammetry</Command>
@@ -353,10 +353,10 @@
         <Description>Size of Z 3x3 areas around a point to find outliers</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>0.5</Value>
-        <MaximumValue>100.0</MaximumValue>
-        <MinimumValue>0.1</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>0.50</Value>
+        <MaximumValue>100.00</MaximumValue>
+        <MinimumValue>0.10</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify ground from photogrammetry</Command>
@@ -380,10 +380,10 @@
         <Description>Buffer for tiles</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>10.0</Value>
-        <MaximumValue>1000.0</MaximumValue>
-        <MinimumValue>1.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>10.00</Value>
+        <MaximumValue>1000.00</MaximumValue>
+        <MinimumValue>1.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify ground from photogrammetry</Command>
@@ -394,10 +394,10 @@
         <Description>Output tile size</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>50.0</Value>
-        <MaximumValue>10000.0</MaximumValue>
-        <MinimumValue>5.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>50.00</Value>
+        <MaximumValue>10000.00</MaximumValue>
+        <MinimumValue>5.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify ground from photogrammetry</Command>
@@ -522,7 +522,7 @@
         <Description>Empty base path for auxiliary temporal folders</Description>
         <PrintSize>200</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>C:/CursoCEDEX3D/CasosPracticos/LineaElectrica/UAV_Camera/temp</Value>
+        <Value>D:/PhotogrammetryToolsProjects/20210729_Tarazona_Cebolla/export/temp</Value>
     </Parameter>
     <Parameter>
         <Command>Classify ground from photogrammetry</Command>
@@ -533,10 +533,10 @@
         <Description>Adaptative maximum distance between points</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>0.5</Value>
-        <MaximumValue>100.0</MaximumValue>
-        <MinimumValue>0.1</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>0.50</Value>
+        <MaximumValue>100.00</MaximumValue>
+        <MinimumValue>0.10</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Classify ground from photogrammetry</Command>
@@ -609,10 +609,10 @@
         <Description>Grid size, spatial resolution, of DTM. 0.2 for uav lidar, 2.0 for PNOA-LIDAR</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>1.0</Value>
-        <MaximumValue>2.0</MaximumValue>
-        <MinimumValue>0.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>0.05</Value>
+        <MaximumValue>2.00</MaximumValue>
+        <MinimumValue>0.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>lasboundary64</Command>
@@ -814,10 +814,10 @@
         <Description>Buffer for tiles</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>10.0</Value>
-        <MaximumValue>1000.0</MaximumValue>
-        <MinimumValue>1.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>10.00</Value>
+        <MaximumValue>1000.00</MaximumValue>
+        <MinimumValue>1.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>lastile64</Command>
@@ -874,10 +874,10 @@
         <Description>Output tile size</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>100.0</Value>
-        <MaximumValue>10000.0</MaximumValue>
-        <MinimumValue>5.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>100.00</Value>
+        <MaximumValue>10000.00</MaximumValue>
+        <MinimumValue>5.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Powerline preprocessing</Command>
@@ -934,10 +934,10 @@
         <Description>Step for ground classification. 1.0 for uav lidar, 5 for PNOA-LIDAR</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>5.0</Value>
-        <MaximumValue>100.0</MaximumValue>
-        <MinimumValue>0.5</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>5.00</Value>
+        <MaximumValue>100.00</MaximumValue>
+        <MinimumValue>0.50</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Powerline preprocessing</Command>
@@ -961,10 +961,10 @@
         <Description>Size of 3x3x3 areas around a point to find outliers. Use 10 m for PNOA-LIDAR</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>10.0</Value>
-        <MaximumValue>100.0</MaximumValue>
-        <MinimumValue>0.1</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>10.00</Value>
+        <MaximumValue>100.00</MaximumValue>
+        <MinimumValue>0.10</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Powerline preprocessing</Command>
@@ -975,10 +975,10 @@
         <Description>Adaptative maximum distance between points</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>1.0</Value>
-        <MaximumValue>100.0</MaximumValue>
-        <MinimumValue>0.1</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>1.00</Value>
+        <MaximumValue>100.00</MaximumValue>
+        <MinimumValue>0.10</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Powerline preprocessing</Command>
@@ -1030,10 +1030,10 @@
         <Description>Buffer for tiles</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>10.0</Value>
-        <MaximumValue>1000.0</MaximumValue>
-        <MinimumValue>1.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>10.00</Value>
+        <MaximumValue>1000.00</MaximumValue>
+        <MinimumValue>1.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Powerline preprocessing</Command>
@@ -1044,10 +1044,10 @@
         <Description>Output tile size</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>100.0</Value>
-        <MaximumValue>10000.0</MaximumValue>
-        <MinimumValue>5.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>100.00</Value>
+        <MaximumValue>10000.00</MaximumValue>
+        <MinimumValue>5.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>Powerline preprocessing</Command>
@@ -1133,10 +1133,10 @@
         <Description>Percentile</Description>
         <PrintSize>20</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>20.0;20.0</Value>
-        <MaximumValue>100.0;100.0</MaximumValue>
-        <MinimumValue>0.0;0.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>20.00;20.00</Value>
+        <MaximumValue>100.00;100.00</MaximumValue>
+        <MinimumValue>0.00;0.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>SolarPark preprocessing</Command>
@@ -1147,10 +1147,10 @@
         <Description>Adaptative maximum distance between points</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>0.9</Value>
-        <MaximumValue>100.0</MaximumValue>
-        <MinimumValue>0.1</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>0.90</Value>
+        <MaximumValue>100.00</MaximumValue>
+        <MinimumValue>0.10</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>SolarPark preprocessing</Command>
@@ -1213,10 +1213,10 @@
         <Description>Size 2D 3x3 areas around a point to find outliers</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>2.0</Value>
-        <MaximumValue>100.0</MaximumValue>
-        <MinimumValue>0.1</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>2.00</Value>
+        <MaximumValue>100.00</MaximumValue>
+        <MinimumValue>0.10</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>SolarPark preprocessing</Command>
@@ -1227,10 +1227,10 @@
         <Description>Size of Z 3x3 areas around a point to find outliers</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>0.5</Value>
-        <MaximumValue>100.0</MaximumValue>
-        <MinimumValue>0.1</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>0.50</Value>
+        <MaximumValue>100.00</MaximumValue>
+        <MinimumValue>0.10</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>SolarPark preprocessing</Command>
@@ -1254,10 +1254,10 @@
         <Description>Buffer for tiles</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>10.0</Value>
-        <MaximumValue>1000.0</MaximumValue>
-        <MinimumValue>1.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>10.00</Value>
+        <MaximumValue>1000.00</MaximumValue>
+        <MinimumValue>1.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>SolarPark preprocessing</Command>
@@ -1268,10 +1268,10 @@
         <Description>Output tile size</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>50.0</Value>
-        <MaximumValue>10000.0</MaximumValue>
-        <MinimumValue>5.0</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>50.00</Value>
+        <MaximumValue>10000.00</MaximumValue>
+        <MinimumValue>5.00</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>SolarPark preprocessing</Command>
@@ -1407,10 +1407,10 @@
         <Description>Adaptative maximum distance between points</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>0.5</Value>
-        <MaximumValue>100.0</MaximumValue>
-        <MinimumValue>0.1</MinimumValue>
-        <PrintPrecision>1</PrintPrecision>
+        <Value>0.50</Value>
+        <MaximumValue>100.00</MaximumValue>
+        <MinimumValue>0.10</MinimumValue>
+        <PrintPrecision>2</PrintPrecision>
     </Parameter>
     <Parameter>
         <Command>SolarPark preprocessing</Command>
