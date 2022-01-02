@@ -8,7 +8,8 @@
 
 [general]
 name=qLidar
-qgisMinimumVersion=3.14
+qgisMinimumVersion=3.4
+# qgisMaximumVersion=3.16.4
 description=QGIS plugin to use point clouds from LIDAR or Photogrammetry
 version=0.5
 author=David Hernandez Lopez
