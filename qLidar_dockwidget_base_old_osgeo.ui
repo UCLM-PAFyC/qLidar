@@ -79,7 +79,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="projectDefinitionPage">
        <property name="geometry">
@@ -241,7 +241,7 @@
                <widget class="QLabel" name="projectAltitudeLabel">
                 <property name="minimumSize">
                  <size>
-                  <width>75</width>
+                  <width>45</width>
                   <height>0</height>
                  </size>
                 </property>
@@ -255,23 +255,60 @@
                  <string>Ignored in this plugin version</string>
                 </property>
                 <property name="text">
-                 <string>Vertical CRS:</string>
+                 <string>Altitude:</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="verticalCRSsComboBox">
+               <widget class="QRadioButton" name="projectAltitudeMslRadioButton">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="minimumSize">
                  <size>
-                  <width>85</width>
+                  <width>50</width>
                   <height>0</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>85</width>
+                  <width>40</width>
                   <height>16777215</height>
                  </size>
+                </property>
+                <property name="text">
+                 <string>MSL</string>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="projectAltitudeEllipsoidRadioButton">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>60</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Ellipsoid</string>
                 </property>
                </widget>
               </item>

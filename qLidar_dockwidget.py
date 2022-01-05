@@ -17,7 +17,7 @@ from osgeo import osr
 from decimal import Decimal
 from PyQt5.QtCore import QSettings, QTranslator, qVersion, QCoreApplication, QFileInfo, QDir, QObject
 from PyQt5.QtWidgets import QMessageBox,QFileDialog,QTabWidget,QInputDialog,QLineEdit
-from qgis.core import QgsApplication, QgsDataSourceUri
+from qgis.core import QgsApplication, QgsDataSourceUri, QgsCoordinateReferenceSystem
 # pluginsPath = QFileInfo(QgsApplication.qgisUserDatabaseFilePath()).path()
 # pluginPath = os.path.dirname(os.path.realpath(__file__))
 # pluginPath = os.path.join(pluginsPath, pluginPath)
@@ -48,9 +48,17 @@ from .selectionMapTools.rectangle_map_tool import RectangleMapTool
 from .selectionMapTools.polygon_map_tool import PolygonMapTool
 from .selectionMapTools.freehand_map_tool import FreehandMapTool
 
+from osgeo import osr
+projVersionMajor = osr.GetPROJVersionMajor()
 
-FORM_CLASS, _ = uic.loadUiType(os.path.join(
-    os.path.dirname(__file__), 'qLidar_dockwidget_base.ui'))
+FORM_CLASS = None
+
+if projVersionMajor < 8:
+    FORM_CLASS, _ = uic.loadUiType(os.path.join(
+        os.path.dirname(__file__), 'qLidar_dockwidget_base_old_osgeo.ui'))
+else:
+    FORM_CLASS, _ = uic.loadUiType(os.path.join(
+        os.path.dirname(__file__), 'qLidar_dockwidget_base.ui'))
 
 class TextEditDialog(QDialog):
     def __init__(self, parent=None):
@@ -727,8 +735,9 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.exec_()
             return
         altitudeIsMsl = True
-        if self.projectAltitudeEllipsoidRadioButton.isChecked():
-            altitudeIsMsl = False
+        if self.projVersionMajor < 8:
+            if self.projectAltitudeEllipsoidRadioButton.isChecked():
+                altitudeIsMsl = False
         projectPath = self.projectPathLineEdit.text()
         if not projectPath:
             msgBox = QMessageBox(self)
@@ -874,6 +883,12 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             self.projects = strProjects.split(qLidarDefinitions.CONST_PROJECTS_STRING_SEPARATOR)
 
         self.crsEpsgCode = -1
+        if self.projVersionMajor >=8:
+            self.projectQgsProjectionSelectionWidget.crsChanged.connect(self.setCrs)
+            self.projectQgsProjectionSelectionWidget.cleared.connect(self.setCrs)
+            self.verticalCRSsComboBox.addItem(qLidarDefinitions.CONST_ELLIPSOID_HEIGHT)
+        self.projectQgsProjectionSelectionWidget.setCrs(QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+
         self.roisShapefiles = []
         self.roisFileTypes = []
         self.processList = []
@@ -2517,6 +2532,67 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 self.roisShapefiles.append(file)
         self.roisFilesActiveFileExtensions = dlg.getActiveFileExtensions()
         self.numberOfRoisLineEdit.setText(str(len(self.roisShapefiles)))
+        return
+
+    def setCrs(self):
+        crs = self.projectQgsProjectionSelectionWidget.crs()
+        isValidCrs = crs.isValid()
+        crsAuthId = crs.authid()
+        if not "EPSG:" in crsAuthId:
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Selected CRS is not EPSG")
+            msgBox.exec_()
+            self.projectQgsProjectionSelectionWidget.setCrs(
+                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+            return
+        crsEpsgCode = int(crsAuthId.replace('EPSG:',''))
+        crsOsr = osr.SpatialReference()  # define test1
+        if crsOsr.ImportFromEPSG(crsEpsgCode) != 0:
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Error importing OSR CRS from EPSG code" + str(crsEpsgCode))
+            msgBox.exec_()
+            self.projectQgsProjectionSelectionWidget.setCrs(
+                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+            return
+        if not crsOsr.IsProjected():
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Selected CRS is not a projected CRS")
+            msgBox.exec_()
+            self.projectQgsProjectionSelectionWidget.setCrs(
+                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+            return
+        self.setVerticalCRSs(crsEpsgCode)
+
+    def setVerticalCRSs(self,crsEpsgCode):
+        self.verticalCRSsComboBox.clear()
+        self.verticalCRSsComboBox.addItem(qLidarDefinitions.CONST_ELLIPSOID_HEIGHT)
+        ret = self.iPyProject.getVerticalCRSs(crsEpsgCode)
+        if ret[0] == "False":
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Error:\n"+ret[1])
+            msgBox.exec_()
+            self.projectsComboBox.setCurrentIndex(0)
+            return
+        else:
+            cont = 0
+            for value in ret:
+                if cont > 0:
+                    # strCrs = qLidarDefinitions.CONST_EPSG_PREFIX + str(value)
+                    self.verticalCRSsComboBox.addItem(value)
+                cont = cont + 1
+            # msgBox = QMessageBox(self)
+            # msgBox.setIcon(QMessageBox.Information)
+            # msgBox.setWindowTitle(self.windowTitle)
+            # msgBox.setText("Process completed successfully")
+            # msgBox.exec_()
         return
 
     def showAboutDlg(self):

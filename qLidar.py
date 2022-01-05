@@ -32,7 +32,7 @@ pluginPath = os.path.dirname(os.path.realpath(__file__))
 pluginPath = os.path.join(pluginsPath, pluginPath)
 libCppPath = None
 if projVersionMajor < 8:
-    libCppPath = os.path.join(pluginPath, 'libCppOldOSGeo4W')
+    libCppPath = os.path.join(pluginPath, 'libCppOldOSGeo')
 else:
     libCppPath = os.path.join(pluginPath, 'libCpp')
 # libCppPath = os.path.join(pluginPath, 'libCpp')
@@ -48,7 +48,7 @@ if projVersionMajor < 8:
     from libCppOldOSGeo4W.libPyPointCloud3D import IPyPC3DProject
 else:
     from .qLidar_dockwidget import qLidarDockWidget
-#     from libCpp.libPyPointCloud3D import IPyPC3DProject
+    from libCpp.libPyPointCloud3D import IPyPC3DProject
 
 from . import qLidarDefinitions
 
@@ -262,15 +262,15 @@ class qLidar:
                 msgBox.setText(text)
                 msgBox.exec_()
                 return
-        if self.projVersionMajor >= 8:
-            text = "<p>Invalid plugin for this QGIS version</p>"
-            msgBox = QMessageBox()
-            msgBox.setIcon(QMessageBox.Information)
-            # msgBox.setWindowTitle(self.windowTitle)
-            msgBox.setTextFormat(Qt.RichText)
-            msgBox.setText(text)
-            msgBox.exec_()
-            return
+        # if self.projVersionMajor >= 8:
+        #     text = "<p>Invalid plugin for this QGIS version</p>"
+        #     msgBox = QMessageBox()
+        #     msgBox.setIcon(QMessageBox.Information)
+        #     # msgBox.setWindowTitle(self.windowTitle)
+        #     msgBox.setTextFormat(Qt.RichText)
+        #     msgBox.setText(text)
+        #     msgBox.exec_()
+        #     return
         pythonModulePath = self.path_libCpp
         self.iPyProject = IPyPC3DProject()
         self.iPyProject.setPythonModulePath(self.path_libCpp)
