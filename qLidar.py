@@ -52,6 +52,7 @@ else:
 
 from . import qLidarDefinitions
 
+
 class qLidar:
     """QGIS Plugin Implementation."""
 
