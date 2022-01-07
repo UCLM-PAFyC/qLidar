@@ -882,13 +882,6 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         if strProjects:
             self.projects = strProjects.split(qLidarDefinitions.CONST_PROJECTS_STRING_SEPARATOR)
 
-        self.crsEpsgCode = -1
-        if self.projVersionMajor >=8:
-            self.projectQgsProjectionSelectionWidget.crsChanged.connect(self.setCrs)
-            self.projectQgsProjectionSelectionWidget.cleared.connect(self.setCrs)
-            self.verticalCRSsComboBox.addItem(qLidarDefinitions.CONST_ELLIPSOID_HEIGHT)
-        self.projectQgsProjectionSelectionWidget.setCrs(QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
-
         self.roisShapefiles = []
         self.roisFileTypes = []
         self.processList = []
@@ -922,6 +915,14 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 msgBox.setText("Error:\n"+ret[1])
                 msgBox.exec_()
                 return
+
+        self.crsEpsgCode = -1
+        if self.projVersionMajor >=8:
+            self.projectQgsProjectionSelectionWidget.crsChanged.connect(self.setCrs)
+            self.projectQgsProjectionSelectionWidget.cleared.connect(self.setCrs)
+            self.verticalCRSsComboBox.addItem(qLidarDefinitions.CONST_ELLIPSOID_HEIGHT)
+        self.projectQgsProjectionSelectionWidget.setCrs(QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+
         if self.lastoolsPath:
             ret = self.iPyProject.pctSetLastoolsPath(self.lastoolsPath)
             if ret[0] == "False":
