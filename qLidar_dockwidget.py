@@ -735,9 +735,14 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.exec_()
             return
         altitudeIsMsl = True
+        verticalCrsEpsgCode = -1
         if self.projVersionMajor < 8:
             if self.projectAltitudeEllipsoidRadioButton.isChecked():
                 altitudeIsMsl = False
+        else:
+            verticalCrsStr = self.verticalCRSsComboBox.currentText()
+            if not verticalCrsStr == qLidarDefinitions.CONST_ELLIPSOID_HEIGHT:
+                verticalCrsEpsgCode = int(verticalCrsStr.replace('EPSG:',''))
         projectPath = self.projectPathLineEdit.text()
         if not projectPath:
             msgBox = QMessageBox(self)
@@ -767,12 +772,20 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 strRoisShapefiles = strRoisShapefiles + self.parametersFromPythonStringSeparator
             strRoisShapefiles = strRoisShapefiles + roiShapefile
             cont = cont + 1
-        ret = self.iPyProject.pctCreateProject(projectPath,
-                                               projectType,
-                                               strGridSize,  #gridSize,
-                                               crsEpsgCode,
-                                               altitudeIsMsl,
-                                               strRoisShapefiles)
+        if self.projVersionMajor < 8:
+            ret = self.iPyProject.pctCreateProjectOldOsgeo(projectPath,
+                                                   projectType,
+                                                   strGridSize,  #gridSize,
+                                                   crsEpsgCode,
+                                                   altitudeIsMsl,
+                                                   strRoisShapefiles)
+        else:
+            ret = self.iPyProject.pctCreateProject(projectPath,
+                                                   projectType,
+                                                   strGridSize,  #gridSize,
+                                                   crsEpsgCode,
+                                                   verticalCrsEpsgCode,
+                                                   strRoisShapefiles)
         if ret[0] == "False":
             msgBox = QMessageBox(self)
             msgBox.setIcon(QMessageBox.Information)
