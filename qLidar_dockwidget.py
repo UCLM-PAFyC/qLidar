@@ -936,6 +936,18 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             self.verticalCRSsComboBox.addItem(qLidarDefinitions.CONST_ELLIPSOID_HEIGHT)
         self.projectQgsProjectionSelectionWidget.setCrs(QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
 
+        if self.projVersionMajor >=8:
+            self.addPCFsQgsProjectionSelectionWidget.crsChanged.connect(self.setCrsAddPCFs)
+            self.addPCFsQgsProjectionSelectionWidget.cleared.connect(self.setCrsAddPCFs)
+            self.addPCFsVerticalCRSsComboBox.addItem(qLidarDefinitions.CONST_ELLIPSOID_HEIGHT)
+        self.addPCFsQgsProjectionSelectionWidget.setCrs(QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+
+        if self.projVersionMajor >=8:
+            self.ppToolsIPCFsQgsProjectionSelectionWidget.crsChanged.connect(self.setCrsPpToolsIPCFs)
+            self.ppToolsIPCFsQgsProjectionSelectionWidget.cleared.connect(self.setCrsPpToolsIPCFs)
+            self.ppToolsIPCFsVerticalCRSsComboBox.addItem(qLidarDefinitions.CONST_ELLIPSOID_HEIGHT)
+        self.ppToolsIPCFsQgsProjectionSelectionWidget.setCrs(QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+
         if self.lastoolsPath:
             ret = self.iPyProject.pctSetLastoolsPath(self.lastoolsPath)
             if ret[0] == "False":
@@ -2582,6 +2594,80 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
             return
         self.setVerticalCRSs(crsEpsgCode)
+        crsEpsgCodeString = 'EPSG:'+str(crsEpsgCode)
+        self.addPCFsQgsProjectionSelectionWidget.setCrs(
+            QgsCoordinateReferenceSystem(crsEpsgCodeString))
+        self.crsEpsgCode = crsEpsgCode
+
+    def setCrsAddPCFs(self):
+        crs = self.addPCFsQgsProjectionSelectionWidget.crs()
+        isValidCrs = crs.isValid()
+        crsAuthId = crs.authid()
+        if not "EPSG:" in crsAuthId:
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Selected CRS is not EPSG")
+            msgBox.exec_()
+            self.addPCFsQgsProjectionSelectionWidget.setCrs(
+                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+            return
+        crsEpsgCode = int(crsAuthId.replace('EPSG:',''))
+        crsOsr = osr.SpatialReference()  # define test1
+        if crsOsr.ImportFromEPSG(crsEpsgCode) != 0:
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Error importing OSR CRS from EPSG code" + str(crsEpsgCode))
+            msgBox.exec_()
+            self.addPCFsQgsProjectionSelectionWidget.setCrs(
+                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+            return
+        if not crsOsr.IsProjected() and not crsOsr.IsGeographic():
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Selected CRS is not a projected or geographic CRS")
+            msgBox.exec_()
+            self.addPCFsQgsProjectionSelectionWidget.setCrs(
+                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+            return
+        self.setVerticalCRSsAddPCFs(crsEpsgCode)
+
+    def setCrsPpToolsIPCFs(self):
+        crs = self.ppToolsIPCFsQgsProjectionSelectionWidget.crs()
+        isValidCrs = crs.isValid()
+        crsAuthId = crs.authid()
+        if not "EPSG:" in crsAuthId:
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Selected CRS is not EPSG")
+            msgBox.exec_()
+            self.ppToolsIPCFsQgsProjectionSelectionWidget.setCrs(
+                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+            return
+        crsEpsgCode = int(crsAuthId.replace('EPSG:',''))
+        crsOsr = osr.SpatialReference()  # define test1
+        if crsOsr.ImportFromEPSG(crsEpsgCode) != 0:
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Error importing OSR CRS from EPSG code" + str(crsEpsgCode))
+            msgBox.exec_()
+            self.ppToolsIPCFsQgsProjectionSelectionWidget.setCrs(
+                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+            return
+        if not crsOsr.IsProjected() and not crsOsr.IsGeographic():
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Selected CRS is not a projected or geographic CRS")
+            msgBox.exec_()
+            self.ppToolsIPCFsQgsProjectionSelectionWidget.setCrs(
+                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+            return
+        self.setVerticalCRSsPpToolsIPCFs(crsEpsgCode)
 
     def setVerticalCRSs(self,crsEpsgCode):
         self.verticalCRSsComboBox.clear()
@@ -2593,7 +2679,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.setWindowTitle(self.windowTitle)
             msgBox.setText("Error:\n"+ret[1])
             msgBox.exec_()
-            self.projectsComboBox.setCurrentIndex(0)
+            # self.projectsComboBox.setCurrentIndex(0)
             return
         else:
             cont = 0
@@ -2601,6 +2687,58 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 if cont > 0:
                     # strCrs = qLidarDefinitions.CONST_EPSG_PREFIX + str(value)
                     self.verticalCRSsComboBox.addItem(value)
+                cont = cont + 1
+            # msgBox = QMessageBox(self)
+            # msgBox.setIcon(QMessageBox.Information)
+            # msgBox.setWindowTitle(self.windowTitle)
+            # msgBox.setText("Process completed successfully")
+            # msgBox.exec_()
+        return
+
+    def setVerticalCRSsAddPCFs(self,crsEpsgCode):
+        self.addPCFsVerticalCRSsComboBox.clear()
+        self.addPCFsVerticalCRSsComboBox.addItem(qLidarDefinitions.CONST_ELLIPSOID_HEIGHT)
+        ret = self.iPyProject.getVerticalCRSs(crsEpsgCode)
+        if ret[0] == "False":
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Error:\n"+ret[1])
+            msgBox.exec_()
+            # self.projectsComboBox.setCurrentIndex(0)
+            return
+        else:
+            cont = 0
+            for value in ret:
+                if cont > 0:
+                    # strCrs = qLidarDefinitions.CONST_EPSG_PREFIX + str(value)
+                    self.addPCFsVerticalCRSsComboBox.addItem(value)
+                cont = cont + 1
+            # msgBox = QMessageBox(self)
+            # msgBox.setIcon(QMessageBox.Information)
+            # msgBox.setWindowTitle(self.windowTitle)
+            # msgBox.setText("Process completed successfully")
+            # msgBox.exec_()
+        return
+
+    def setVerticalCRSsPpToolsIPCFs(self,crsEpsgCode):
+        self.ppToolsIPCFsVerticalCRSsComboBox.clear()
+        self.ppToolsIPCFsVerticalCRSsComboBox.addItem(qLidarDefinitions.CONST_ELLIPSOID_HEIGHT)
+        ret = self.iPyProject.getVerticalCRSs(crsEpsgCode)
+        if ret[0] == "False":
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Error:\n"+ret[1])
+            msgBox.exec_()
+            # self.projectsComboBox.setCurrentIndex(0)
+            return
+        else:
+            cont = 0
+            for value in ret:
+                if cont > 0:
+                    # strCrs = qLidarDefinitions.CONST_EPSG_PREFIX + str(value)
+                    self.ppToolsIPCFsVerticalCRSsComboBox.addItem(value)
                 cont = cont + 1
             # msgBox = QMessageBox(self)
             # msgBox.setIcon(QMessageBox.Information)
