@@ -1598,7 +1598,44 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             root.removeChildNode(group)
         return
 
+    def debugNeighbors(self):
+        if not self.projVersionMajor>=8:
+            return
+        projectPath = self.projectsComboBox.currentText()
+        if projectPath == qLidarDefinitions.CONST_NO_COMBO_SELECT:
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Select project before")
+            msgBox.exec_()
+            return
+        point = []
+        point.append(-1.893331248)
+        point.append(39.018813384)
+        pointCrsEpsgCode = 4258
+        pointCrsProj4String = "+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs"
+        searchRadius2d = 20.0
+        numberOfNeighbors = 10
+        ret = self.iPyProject.pctGetPointsNeighborsFromPoint(projectPath,
+                                                             point,
+                                                             pointCrsEpsgCode,
+                                                             pointCrsProj4String,
+                                                             searchRadius2d,
+                                                             numberOfNeighbors)
+        if ret[0] == "False":
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Error:\n"+ret[1])
+            msgBox.exec_()
+            self.projectsComboBox.setCurrentIndex(0)
+            return
+        yo = 1
+        yo = yo + 1
+
+
     def selectGetAltitudeStatisticsForSelectedPoints(self):
+        # self.debugNeighbors()
         self.meanAltitudeLineEdit.clear()
         self.stdAltitudeLineEdit.clear()
         self.altitudeDifferenceLineEdit.clear()
