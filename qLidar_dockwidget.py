@@ -263,7 +263,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.setWindowTitle(self.windowTitle)
             msgBox.setText("Error:\n" + ret[1])
             msgBox.exec_()
-            self.projectsComboBox.setCurrentIndex(0)
+            # self.projectsComboBox.setCurrentIndex(0)
             return
         for selectedTileName in selectedTileNames:
             layers = QgsProject.instance().mapLayersByName(selectedTileName)
@@ -522,9 +522,17 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.setText("Selected CRS is not a projected CRS")
             msgBox.exec_()
             return
+
         altitudeIsMsl = True
-        if self.addPCFsAltitudeEllipsoidRadioButton.isChecked():
-            altitudeIsMsl = False
+        verticalCrsEpsgCode = -1
+        if self.projVersionMajor < 8:
+            if self.addPCFsAltitudeEllipsoidRadioButton.isChecked():
+                altitudeIsMsl = False
+        else:
+            verticalCrsStr = self.addPCFsVerticalCRSsComboBox.currentText()
+            if not verticalCrsStr == qLidarDefinitions.CONST_ELLIPSOID_HEIGHT:
+                verticalCrsEpsgCode = int(verticalCrsStr.replace('EPSG:',''))
+
         # projectPath=self.projectsComboBox.currentText()
         # if projectPath == qLidarDefinitions.CONST_NO_COMBO_SELECT:
         #     msgBox = QMessageBox(self)
@@ -541,10 +549,16 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             strPointCloudFiles = strPointCloudFiles + pointCloudFile
             cont = cont + 1
         initialDateTime = QDateTime.currentDateTime()
-        ret = self.iPyProject.pctAddPointCloudFilesToProject(self.projectPath,
-                                                             crsEpsgCode,
-                                                             altitudeIsMsl,
-                                                             strPointCloudFiles)
+        if self.projVersionMajor < 8:
+            ret = self.iPyProject.pctAddPointCloudFilesToProjectOldOsgeo(self.projectPath,
+                                                                 crsEpsgCode,
+                                                                 altitudeIsMsl,
+                                                                 strPointCloudFiles)
+        else:
+            ret = self.iPyProject.pctAddPointCloudFilesToProject(self.projectPath,
+                                                                 crsEpsgCode,
+                                                                 verticalCrsEpsgCode,
+                                                                 strPointCloudFiles)
         if ret[0] == "False":
             msgBox = QMessageBox(self)
             msgBox.setIcon(QMessageBox.Information)
@@ -627,7 +641,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.setWindowTitle(self.windowTitle)
             msgBox.setText("Error:\n"+ret[1])
             msgBox.exec_()
-            self.projectsComboBox.setCurrentIndex(0)
+            # self.projectsComboBox.setCurrentIndex(0)
             return
         msgBox = QMessageBox(self)
         msgBox.setIcon(QMessageBox.Information)
@@ -930,6 +944,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 return
 
         self.crsEpsgCode = -1
+        self.verticalCrsEpsgCode = -1
         if self.projVersionMajor >=8:
             self.projectQgsProjectionSelectionWidget.crsChanged.connect(self.setCrs)
             self.projectQgsProjectionSelectionWidget.cleared.connect(self.setCrs)
@@ -1485,16 +1500,44 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.setWindowTitle(self.windowTitle)
             msgBox.setText(msg)
             msgBox.exec_()
-        ret = self.iPyProject.pctGetProjectCrsEpsgCode(projectPath)
-        if ret[0] == "False":
-            msgBox = QMessageBox(self)
-            msgBox.setIcon(QMessageBox.Information)
-            msgBox.setWindowTitle(self.windowTitle)
-            msgBox.setText("Error:\n"+ret[1])
-            msgBox.exec_()
-            self.projectsComboBox.setCurrentIndex(0)
-            return
-        self.crsEpsgCode = ret[1]
+        if self.projVersionMajor < 8:
+            ret = self.iPyProject.pctGetProjectCrsEpsgCode(projectPath)
+            if ret[0] == "False":
+                msgBox = QMessageBox(self)
+                msgBox.setIcon(QMessageBox.Information)
+                msgBox.setWindowTitle(self.windowTitle)
+                msgBox.setText("Error:\n" + ret[1])
+                msgBox.exec_()
+                self.projectsComboBox.setCurrentIndex(0)
+                return
+            self.crsEpsgCode = ret[1]
+            self.addPCFsQgsProjectionSelectionWidget.setCrs(
+                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+            self.addPCFsQgsProjectionSelectionWidget.setEnabled(False)
+        else:
+            ret = self.iPyProject.pctGetProjectCrsEpsgCodes(projectPath)
+            if ret[0] == "False":
+                msgBox = QMessageBox(self)
+                msgBox.setIcon(QMessageBox.Information)
+                msgBox.setWindowTitle(self.windowTitle)
+                msgBox.setText("Error:\n"+ret[1])
+                msgBox.exec_()
+                self.projectsComboBox.setCurrentIndex(0)
+                return
+            self.crsEpsgCode = ret[1]
+            self.verticalCrsEpsgCode = ret[2]
+            self.addPCFsQgsProjectionSelectionWidget.setCrs(
+                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+            self.setCrsAddPCFs()
+            self.addPCFsVerticalCRSsComboBox.setCurrentIndex(0)
+            if self.verticalCrsEpsgCode != -1:
+                strVerticalCrsEpsgCode = qLidarDefinitions.CONST_EPSG_PREFIX + str(self.verticalCrsEpsgCode)
+                index = self.addPCFsVerticalCRSsComboBox.findText(strVerticalCrsEpsgCode, Qt.MatchFixedString)
+                if index != -1:
+                    self.addPCFsVerticalCRSsComboBox.setCurrentIndex(index)
+            self.addPCFsQgsProjectionSelectionWidget.setEnabled(False)
+            self.addPCFsVerticalCRSsComboBox.setEnabled(False)
+
         ret = self.iPyProject.pctGetMaximumDensity(projectPath)
         if ret[0] == "False":
             msgBox = QMessageBox(self)
@@ -1504,6 +1547,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.exec_()
             self.projectsComboBox.setCurrentIndex(0)
             return
+
         msgBox = QMessageBox(self)
         msgBox.setIcon(QMessageBox.Information)
         msgBox.setWindowTitle(self.windowTitle)
@@ -1543,6 +1587,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         self.projectManagementTabWidget.setEnabled(True)
         self.projectManagementTabWidget.setTabEnabled(0, False)
         self.projectManagementTabWidget.setTabEnabled(1, True)
+        # self.setCrsAddPCFs()
         tilesTableName = qLidarDefinitions.CONST_SPATIALITE_LAYERS_TILES_TABLE_NAME
         layerList = QgsProject.instance().mapLayersByName(tilesTableName)
         if not layerList:
@@ -1599,8 +1644,8 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         return
 
     def debugNeighbors(self):
-        if not self.projVersionMajor>=8:
-            return
+        # if not self.projVersionMajor>=8:
+        #     return
         projectPath = self.projectsComboBox.currentText()
         if projectPath == qLidarDefinitions.CONST_NO_COMBO_SELECT:
             msgBox = QMessageBox(self)
@@ -1609,6 +1654,13 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.setText("Select project before")
             msgBox.exec_()
             return
+        # projectCrs = QgsProject.instance().crs()
+        # projectCrsEpsgCode = -1
+        # projectCrsProj4 = ""
+        # projectCrsAuthId = projectCrs.authid()
+        # if "EPSG" in projectCrsAuthId:
+        #     projectCrsEpsgCode = int(projectCrsAuthId.replace("EPSG:",""))
+        # projectCrsProj4 = projectCrs.toProj4()
         point = []
         point.append(-1.893331248)
         point.append(39.018813384)
@@ -1628,14 +1680,24 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.setWindowTitle(self.windowTitle)
             msgBox.setText("Error:\n"+ret[1])
             msgBox.exec_()
-            self.projectsComboBox.setCurrentIndex(0)
             return
-        yo = 1
-        yo = yo + 1
-
+        else:
+            text = "Number of neighbors: "+str(len(ret[1]))
+            cont = 0
+            for point in ret[1]:
+                cont = cont + 1
+                text += "\nPoint : " + str(cont)
+                for key in point:
+                    text += ";" + key + ": " + str(point[key])
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText(text)
+            msgBox.exec_()
+            return
 
     def selectGetAltitudeStatisticsForSelectedPoints(self):
-        # self.debugNeighbors()
+        self.debugNeighbors()
         self.meanAltitudeLineEdit.clear()
         self.stdAltitudeLineEdit.clear()
         self.altitudeDifferenceLineEdit.clear()
@@ -2495,7 +2557,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.setWindowTitle(self.windowTitle)
             msgBox.setText("Error:\n"+ret[1])
             msgBox.exec_()
-            self.projectsComboBox.setCurrentIndex(0)
+            # self.projectsComboBox.setCurrentIndex(0)
             return
         else:
             msgBox = QMessageBox(self)
@@ -2632,8 +2694,8 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             return
         self.setVerticalCRSs(crsEpsgCode)
         crsEpsgCodeString = 'EPSG:'+str(crsEpsgCode)
-        self.addPCFsQgsProjectionSelectionWidget.setCrs(
-            QgsCoordinateReferenceSystem(crsEpsgCodeString))
+        # self.addPCFsQgsProjectionSelectionWidget.setCrs(
+        #     QgsCoordinateReferenceSystem(crsEpsgCodeString))
         self.crsEpsgCode = crsEpsgCode
 
     def setCrsAddPCFs(self):

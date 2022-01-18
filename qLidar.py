@@ -32,7 +32,7 @@ pluginPath = os.path.dirname(os.path.realpath(__file__))
 pluginPath = os.path.join(pluginsPath, pluginPath)
 libCppPath = None
 if projVersionMajor < 8:
-    libCppPath = os.path.join(pluginPath, 'libCppOldOSGeo')
+    libCppPath = os.path.join(pluginPath, 'libCppOldOSGeo4W')
 else:
     libCppPath = os.path.join(pluginPath, 'libCpp')
 # libCppPath = os.path.join(pluginPath, 'libCpp')
