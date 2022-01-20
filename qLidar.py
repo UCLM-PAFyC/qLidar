@@ -104,6 +104,8 @@ class qLidar:
         self.pluginIsActive = False
         self.dockwidget = None
 
+        self.iPyProject = None
+
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
@@ -337,6 +339,19 @@ class qLidar:
         self.iface.mainWindow().showMaximized()
         self.iface.mainWindow().update()
 
+    def getProject(self):
+        return self.iPyProject
+
+    def getProjectPath(self):
+        if not self.iPyProject:
+            return ''
+        if not self.dockwidget:
+            return ''
+        projectPath = self.dockwidget.projectsComboBox.currentText()
+        if projectPath == qLidarDefinitions.CONST_NO_COMBO_SELECT:
+            projectPath = ''
+            return projectPath
+        return projectPath
 
     # def runFromAnotherPlugin(self,
     #                          iface,

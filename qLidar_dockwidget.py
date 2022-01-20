@@ -1322,6 +1322,12 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                                 changedTileNames.append(loadTile)
         return [changedPoints,changedTileNames]
 
+    # def getProjectPath(self):
+    #     projectPath = self.projectsComboBox.currentText()
+    #     if projectPath == qLidarDefinitions.CONST_NO_COMBO_SELECT:
+    #         projectPath = ''
+    #         return projectPath
+
     def getSelectedPoints(self):
         selectedPoints = []
         selectedTileNames = []
@@ -1697,7 +1703,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             return
 
     def selectGetAltitudeStatisticsForSelectedPoints(self):
-        self.debugNeighbors()
+        # self.debugNeighbors()
         self.meanAltitudeLineEdit.clear()
         self.stdAltitudeLineEdit.clear()
         self.altitudeDifferenceLineEdit.clear()
