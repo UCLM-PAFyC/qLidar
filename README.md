@@ -23,7 +23,7 @@ UCLM - PAFyC, [http://pafyc.uclm.es](http://pafyc.uclm.es)
 USAL - TIDOP, [http://tidop.usal.es](http://tidop.usal.es)
 
 
-Beta version: 0.5, Minimum QGIS version: 3.4. Tested 3.4 - 3.16. 
+Beta version: 0.6, Minimum QGIS version: 3.4. Tested 3.4 - 3.16. 
 
 This version works for not MSI installers
 
