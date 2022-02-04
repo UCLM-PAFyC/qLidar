@@ -253,9 +253,9 @@ class qLidar:
                 egm08compressFileName = libCppPath + "/" + qLidarDefinitions.CONST_EGM08_25_COMPRESS_FILE_NAME
                 text = "<p>Before opening the plugin for the first time<\p>"
                 text += "<p>you must download the file:</p>"
-                text += "<p><a href='https://github.com/UCLM-PAFyC/qLidar/tree/master/libCpp/egm08_25.7z'>egm08_25.7z</a></p>"
+                text += "<p><a href='https://github.com/UCLM-PAFyC/qLidar/blob/master/libCppOldOSGeo4W/egm08_25.7z'>egm08_25.7z</a></p>"
                 text += "<p>and unzip the file using: <a href='https://www.7-zip.org/'>7 zip</a></p>"
-                text += "<p>in the same path of the plugin, getting:</p>"
+                text += "<p>in the same path of the plugin, /qLidar/libCppOldOSGeo4W/, getting:</p>"
                 text += egm08UncompressFileName
                 text += "<p>The unzipped file could not be uploaded to Github due to account limitations</p>"
                 msgBox = QMessageBox()

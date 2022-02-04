@@ -48,6 +48,13 @@ from .selectionMapTools.rectangle_map_tool import RectangleMapTool
 from .selectionMapTools.polygon_map_tool import PolygonMapTool
 from .selectionMapTools.freehand_map_tool import FreehandMapTool
 
+from qgis.core import Qgis
+qgis_version_number_str = Qgis.QGIS_VERSION.split('-')[0]
+qgis_version_first_number = int(qgis_version_number_str.split('.')[0])
+qgis_version_second_number = int(qgis_version_number_str.split('.')[1])
+qgis_version_third_number = int(qgis_version_number_str.split('.')[2])
+qgis_version_second_number_change_buffer_parameters = 20
+
 from osgeo import osr
 projVersionMajor = osr.GetPROJVersionMajor()
 
@@ -140,7 +147,11 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             layerList = QgsProject.instance().mapLayersByName(tileTableName)
             if len(layerList) == 1:
                 vlayer = layerList[0]
-                ltm = self.iface.layerTreeView().model()
+                # ltv = self.iface.layerTreeView()
+                # ltm_bis = ltv.model()
+                root = QgsProject.instance().layerTreeRoot()
+                ltm = QgsLayerTreeModel(root)
+                # ltm = self.iface.layerTreeView().model() # old
                 lsi = vlayer.renderer().legendSymbolItems()
                 for classNumber in self.lavelSimbolByClassNumber:
                     className = self.lavelSimbolByClassNumber[classNumber]
@@ -1517,8 +1528,11 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 self.projectsComboBox.setCurrentIndex(0)
                 return
             self.crsEpsgCode = ret[1]
+            strCrsEpsgCode = qLidarDefinitions.CONST_EPSG_PREFIX + str(self.crsEpsgCode)
             self.addPCFsQgsProjectionSelectionWidget.setCrs(
-                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+                QgsCoordinateReferenceSystem(strCrsEpsgCode))
+            # self.addPCFsQgsProjectionSelectionWidget.setCrs(
+            #     QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
             self.addPCFsQgsProjectionSelectionWidget.setEnabled(False)
         else:
             ret = self.iPyProject.pctGetProjectCrsEpsgCodes(projectPath)
@@ -1532,8 +1546,11 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 return
             self.crsEpsgCode = ret[1]
             self.verticalCrsEpsgCode = ret[2]
+            strCrsEpsgCode = qLidarDefinitions.CONST_EPSG_PREFIX + str(self.crsEpsgCode)
             self.addPCFsQgsProjectionSelectionWidget.setCrs(
-                QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
+                QgsCoordinateReferenceSystem(strCrsEpsgCode))
+            # self.addPCFsQgsProjectionSelectionWidget.setCrs(
+            #     QgsCoordinateReferenceSystem(qLidarDefinitions.CONST_DEFAULT_CRS))
             self.setCrsAddPCFs()
             self.addPCFsVerticalCRSsComboBox.setCurrentIndex(0)
             if self.verticalCrsEpsgCode != -1:
