@@ -561,7 +561,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             cont = cont + 1
         initialDateTime = QDateTime.currentDateTime()
         if self.projVersionMajor < 8:
-            ret = self.iPyProject.pctAddPointCloudFilesToProjectOldOsgeo(self.projectPath,
+            ret = self.iPyProject.pctAddPointCloudFilesToProject(self.projectPath,
                                                                  crsEpsgCode,
                                                                  altitudeIsMsl,
                                                                  strPointCloudFiles)
@@ -798,7 +798,7 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             strRoisShapefiles = strRoisShapefiles + roiShapefile
             cont = cont + 1
         if self.projVersionMajor < 8:
-            ret = self.iPyProject.pctCreateProjectOldOsgeo(projectPath,
+            ret = self.iPyProject.pctCreateProject(projectPath,
                                                    projectType,
                                                    strGridSize,  #gridSize,
                                                    crsEpsgCode,
