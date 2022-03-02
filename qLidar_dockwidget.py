@@ -2815,6 +2815,11 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             # msgBox.setWindowTitle(self.windowTitle)
             # msgBox.setText("Process completed successfully")
             # msgBox.exec_()
+        strCrs = qLidarDefinitions.CONST_EPSG_PREFIX + str(crsEpsgCode)
+        if strCrs == qLidarDefinitions.CONST_DEFAULT_CRS:
+            index = self.verticalCRSsComboBox.findText(qLidarDefinitions.CONST_DEFAULT_VERTICAL_CRS)#, QtCore.Qt.MatchFixedString)
+            if index > 0:
+                self.verticalCRSsComboBox.setCurrentIndex(index)
         return
 
     def setVerticalCRSsAddPCFs(self,crsEpsgCode):
@@ -2841,6 +2846,11 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             # msgBox.setWindowTitle(self.windowTitle)
             # msgBox.setText("Process completed successfully")
             # msgBox.exec_()
+        strCrs = qLidarDefinitions.CONST_EPSG_PREFIX + str(crsEpsgCode)
+        if strCrs == qLidarDefinitions.CONST_DEFAULT_CRS:
+            index = self.addPCFsVerticalCRSsComboBox.findText(qLidarDefinitions.CONST_DEFAULT_VERTICAL_CRS)#, QtCore.Qt.MatchFixedString)
+            if index > 0:
+                self.addPCFsVerticalCRSsComboBox.setCurrentIndex(index)
         return
 
     def setVerticalCRSsPpToolsIPCFs(self,crsEpsgCode):
@@ -2867,6 +2877,11 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             # msgBox.setWindowTitle(self.windowTitle)
             # msgBox.setText("Process completed successfully")
             # msgBox.exec_()
+        strCrs = qLidarDefinitions.CONST_EPSG_PREFIX + str(crsEpsgCode)
+        if strCrs == qLidarDefinitions.CONST_DEFAULT_CRS:
+            index = self.ppToolsIPCFsVerticalCRSsComboBox.findText(qLidarDefinitions.CONST_DEFAULT_VERTICAL_CRS)#, QtCore.Qt.MatchFixedString)
+            if index > 0:
+                self.ppToolsIPCFsVerticalCRSsComboBox.setCurrentIndex(index)
         return
 
     def showAboutDlg(self):
