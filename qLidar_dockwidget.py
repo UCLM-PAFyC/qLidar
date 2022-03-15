@@ -368,8 +368,14 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             msgBox.exec_()
             return
         altitudeIsMsl = True
-        if self.ppToolsIPCFsAltitudeEllipsoidRadioButton.isChecked():
-            altitudeIsMsl = False
+        verticalCrsEpsgCode = -1
+        if self.projVersionMajor < 8:
+            if self.ppToolsIPCFsAltitudeEllipsoidRadioButton.isChecked():
+                altitudeIsMsl = False
+        else:
+            verticalCrsStr = self.ppToolsIPCFsVerticalCRSsComboBox.currentText()
+            if not verticalCrsStr == qLidarDefinitions.CONST_ELLIPSOID_HEIGHT:
+                verticalCrsEpsgCode = int(verticalCrsStr.replace('EPSG:',''))
         inputFiles = self.postprocessingIPCFs
         if len(inputFiles ) == 0:
             msgBox = QMessageBox(self)
@@ -3019,8 +3025,14 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 msgBox.exec_()
                 return
             altitudeIsMsl = True
-            if self.ppToolsIPCFsAltitudeEllipsoidRadioButton.isChecked():
-                altitudeIsMsl = False
+            verticalCrsEpsgCode = -1
+            if self.projVersionMajor < 8:
+                if self.ppToolsIPCFsAltitudeEllipsoidRadioButton.isChecked():
+                    altitudeIsMsl = False
+            else:
+                verticalCrsStr = self.ppToolsIPCFsVerticalCRSsComboBox.currentText()
+                if not verticalCrsStr == qLidarDefinitions.CONST_ELLIPSOID_HEIGHT:
+                    verticalCrsEpsgCode = int(verticalCrsStr.replace('EPSG:', ''))
             inputFiles = self.postprocessingIPCFs
             if len(inputFiles) == 0:
                 msgBox = QMessageBox(self)
