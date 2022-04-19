@@ -707,7 +707,7 @@
         <Description>Shapefile for clipping (Polygon)</Description>
         <PrintSize>200</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>C:/CursoCEDEX3D/CasosPracticos/LineaElectrica/roi_25830.shp</Value>
+        <Value>D:/qLidarProjects/IncendioLietor2016/data/roi/DelimitacionFotoInterpretadaPNOA2018.shp</Value>
     </Parameter>
     <Parameter>
         <Command>lasclip64</Command>
@@ -786,13 +786,13 @@
     <Parameter>
         <Command>lasmerge64</Command>
         <Code>lasmerge_keep_classes</Code>
-        <Enabled>No</Enabled>
+        <Enabled>Yes</Enabled>
         <Tag>-keep_class</Tag>
         <Type>Text</Type>
         <Description>Classes to keep outside removing area, separated by a space. Disabled for all</Description>
         <PrintSize>10</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>2</Value>
+        <Value>2 4 5</Value>
     </Parameter>
     <Parameter>
         <Command>lastile64</Command>

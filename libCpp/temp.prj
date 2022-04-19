@@ -1,11 +1,14 @@
 Point Cloud File Management Project
 - Number of processes ......................................# 1
 - Process (CREATE_PCFM,ADD_PCFILE,ADD_ROI,WRITE_PCFS) ......# ADD_PCFILES
-  - PoinCloudFileManager path ..............................# "D:/qLidarProjects/IndustrialParkCampollanoAB/pc3d_lidar_rgb_2009_new"
+  - PoinCloudFileManager path ..............................# "D:/qLidarProjects/IncendioLietor2016/qLidar2009"
   - CRS (libCRS/EPSG/proj4/wkt) ............................# 25830+5782
-  - Number of files ........................................# 5
-  - File ...................................................# "D:/qLidarProjects/IndustrialParkCampollanoAB/data/lidar_2009/PNOA_2009_Lote5_CLM_594-4320_ORT-CLA-COL.laz"
-  - File ...................................................# "D:/qLidarProjects/IndustrialParkCampollanoAB/data/lidar_2009/PNOA_2009_Lote5_CLM_594-4322_ORT-CLA-COL.laz"
-  - File ...................................................# "D:/qLidarProjects/IndustrialParkCampollanoAB/data/lidar_2009/PNOA_2009_Lote5_CLM_596-4320_ORT-CLA-COL.laz"
-  - File ...................................................# "D:/qLidarProjects/IndustrialParkCampollanoAB/data/lidar_2009/PNOA_2009_Lote5_CLM_596-4322_ORT-CLA-COL.laz"
-  - File ...................................................# "D:/qLidarProjects/IndustrialParkCampollanoAB/data/lidar_2009/PNOA_2009_Lote5_CLM_598-4320_ORT-CLA-COL.laz"
+  - Number of files ........................................# 8
+  - File ...................................................# "D:/qLidarProjects/IncendioLietor2016/data/lidar_2009/PNOA_2009_Lote3_CLM_596-4264_ORT-CLA-COL.laz"
+  - File ...................................................# "D:/qLidarProjects/IncendioLietor2016/data/lidar_2009/PNOA_2009_Lote3_CLM_596-4266_ORT-CLA-COL.laz"
+  - File ...................................................# "D:/qLidarProjects/IncendioLietor2016/data/lidar_2009/PNOA_2009_Lote3_CLM_596-4268_ORT-CLA-COL.laz"
+  - File ...................................................# "D:/qLidarProjects/IncendioLietor2016/data/lidar_2009/PNOA_2009_Lote3_CLM_598-4264_ORT-CLA-COL.laz"
+  - File ...................................................# "D:/qLidarProjects/IncendioLietor2016/data/lidar_2009/PNOA_2009_Lote3_CLM_598-4266_ORT-CLA-COL.laz"
+  - File ...................................................# "D:/qLidarProjects/IncendioLietor2016/data/lidar_2009/PNOA_2009_Lote3_CLM_598-4268_ORT-CLA-COL.laz"
+  - File ...................................................# "D:/qLidarProjects/IncendioLietor2016/data/lidar_2009/PNOA_2009_Lote3_CLM_600-4264_ORT-CLA-COL.laz"
+  - File ...................................................# "D:/qLidarProjects/IncendioLietor2016/data/lidar_2009/PNOA_2009_Lote3_CLM_600-4266_ORT-CLA-COL.laz"
