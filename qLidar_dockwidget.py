@@ -1631,6 +1631,22 @@ class qLidarDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         # # msgBox.setWindowTitle(self.windowTitle)
         # # msgBox.setText("Process completed successfully")
         # # msgBox.exec_()
+        ret = self.iPyProject.pctSetProjectManagerTemporalPath(self.projectManagerTemporalPath)
+        if ret[0] == "False":
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Error:\n" + ret[1])
+            msgBox.exec_()
+            return
+        ret = self.iPyProject.pctSetProjectManagerOutputPath(self.projectManagerOutputPath)
+        if ret[0] == "False":
+            msgBox = QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(self.windowTitle)
+            msgBox.setText("Error:\n" + ret[1])
+            msgBox.exec_()
+            return
         return
 
     def ppToolsTabWidgetChanged(self,i):
