@@ -105,6 +105,7 @@ class qLidar:
         self.dockwidget = None
 
         self.iPyProject = None
+        self.pluginIsInitialized = False
 
 
     # noinspection PyMethodMayBeStatic
@@ -247,54 +248,57 @@ class qLidar:
         if self.pluginIsActive:
             return
 
-        if self.projVersionMajor < 8:
-            egm08UncompressFileName = libCppPath + "/" + qLidarDefinitions.CONST_EGM08_25_FILE_NAME
-            if not QFile.exists(egm08UncompressFileName):
-                egm08compressFileName = libCppPath + "/" + qLidarDefinitions.CONST_EGM08_25_COMPRESS_FILE_NAME
-                text = "<p>Before opening the plugin for the first time<\p>"
-                text += "<p>you must download the file:</p>"
-                text += "<p><a href='https://github.com/UCLM-PAFyC/qLidar/blob/master/libCppOldOSGeo4W/egm08_25.7z'>egm08_25.7z</a></p>"
-                text += "<p>and unzip the file using: <a href='https://www.7-zip.org/'>7 zip</a></p>"
-                text += "<p>in the same path of the plugin, /qLidar/libCppOldOSGeo4W/, getting:</p>"
-                text += egm08UncompressFileName
-                text += "<p>The unzipped file could not be uploaded to Github due to account limitations</p>"
+        if not self.pluginIsInitialized:
+
+            if self.projVersionMajor < 8:
+                egm08UncompressFileName = libCppPath + "/" + qLidarDefinitions.CONST_EGM08_25_FILE_NAME
+                if not QFile.exists(egm08UncompressFileName):
+                    egm08compressFileName = libCppPath + "/" + qLidarDefinitions.CONST_EGM08_25_COMPRESS_FILE_NAME
+                    text = "<p>Before opening the plugin for the first time<\p>"
+                    text += "<p>you must download the file:</p>"
+                    text += "<p><a href='https://github.com/UCLM-PAFyC/qLidar/blob/master/libCppOldOSGeo4W/egm08_25.7z'>egm08_25.7z</a></p>"
+                    text += "<p>and unzip the file using: <a href='https://www.7-zip.org/'>7 zip</a></p>"
+                    text += "<p>in the same path of the plugin, /qLidar/libCppOldOSGeo4W/, getting:</p>"
+                    text += egm08UncompressFileName
+                    text += "<p>The unzipped file could not be uploaded to Github due to account limitations</p>"
+                    msgBox = QMessageBox()
+                    msgBox.setIcon(QMessageBox.Information)
+                    # msgBox.setWindowTitle(self.windowTitle)
+                    msgBox.setTextFormat(Qt.RichText)
+                    msgBox.setText(text)
+                    msgBox.exec_()
+                    return
+            # if self.projVersionMajor >= 8:
+            #     text = "<p>Invalid plugin for this QGIS version</p>"
+            #     msgBox = QMessageBox()
+            #     msgBox.setIcon(QMessageBox.Information)
+            #     # msgBox.setWindowTitle(self.windowTitle)
+            #     msgBox.setTextFormat(Qt.RichText)
+            #     msgBox.setText(text)
+            #     msgBox.exec_()
+            #     return
+            pythonModulePath = self.path_libCpp
+            self.iPyProject = IPyPC3DProject()
+            self.iPyProject.setPythonModulePath(self.path_libCpp)
+            ret = self.iPyProject.initialize()
+            if ret[0] == "False":
+                # msgBox = QMessageBox()
+                # msgBox.setIcon(QMessageBox.Information)
+                # # msgBox.setWindowTitle(self.windowTitle)
+                # msgBox.setText("\n" + ret[1])
+                # msgBox.exec_()
+                # return
+                msgDemoVersion = self.iPyProject.getDemoVersionText()
                 msgBox = QMessageBox()
                 msgBox.setIcon(QMessageBox.Information)
                 # msgBox.setWindowTitle(self.windowTitle)
-                msgBox.setTextFormat(Qt.RichText)
-                msgBox.setText(text)
+                msgBox.setText("\n" + msgDemoVersion)
                 msgBox.exec_()
-                return
-        # if self.projVersionMajor >= 8:
-        #     text = "<p>Invalid plugin for this QGIS version</p>"
-        #     msgBox = QMessageBox()
-        #     msgBox.setIcon(QMessageBox.Information)
-        #     # msgBox.setWindowTitle(self.windowTitle)
-        #     msgBox.setTextFormat(Qt.RichText)
-        #     msgBox.setText(text)
-        #     msgBox.exec_()
-        #     return
-        pythonModulePath = self.path_libCpp
-        self.iPyProject = IPyPC3DProject()
-        self.iPyProject.setPythonModulePath(self.path_libCpp)
-        ret = self.iPyProject.initialize()
-        if ret[0] == "False":
-            # msgBox = QMessageBox()
-            # msgBox.setIcon(QMessageBox.Information)
-            # # msgBox.setWindowTitle(self.windowTitle)
-            # msgBox.setText("\n" + ret[1])
-            # msgBox.exec_()
-            # return
-            msgDemoVersion = self.iPyProject.getDemoVersionText()
-            msgBox = QMessageBox()
-            msgBox.setIcon(QMessageBox.Information)
-            # msgBox.setWindowTitle(self.windowTitle)
-            msgBox.setText("\n" + msgDemoVersion)
-            msgBox.exec_()
-            # return
+                # return
 
-        path_file_qsettings = self.path_plugin + '/' + qLidarDefinitions.CONST_SETTINGS_FILE_NAME
-        self.settings = QSettings(path_file_qsettings, QSettings.IniFormat)
+            path_file_qsettings = self.path_plugin + '/' + qLidarDefinitions.CONST_SETTINGS_FILE_NAME
+            self.settings = QSettings(path_file_qsettings, QSettings.IniFormat)
+            self.pluginIsInitialized = True
 
         self.pluginIsActive = True
 

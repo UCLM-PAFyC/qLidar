@@ -1,20 +1,6 @@
 <!DOCTYPE ParametersManager>
 <ParametersManager version="1.1">
     <Parameter>
-        <Command>Powerline preprocessing</Command>
-        <Code>PP_lastile_buffer</Code>
-        <Enabled>Yes</Enabled>
-        <Tag>-buffer</Tag>
-        <Type>Double precision number</Type>
-        <Description>Buffer for tiles</Description>
-        <PrintSize>20</PrintSize>
-        <Unit>meters</Unit>
-        <Value>10.00</Value>
-        <MaximumValue>1000.00</MaximumValue>
-        <MinimumValue>1.00</MinimumValue>
-        <PrintPrecision>2</PrintPrecision>
-    </Parameter>
-    <Parameter>
         <Command>Classify buidings and high vegetation</Command>
         <Code>bhv_lasclassify_cores</Code>
         <Enabled>Yes</Enabled>
@@ -184,7 +170,7 @@
         <Description>LAZ Geoid heights file. Select from folder geoids_lastools</Description>
         <PrintSize>200</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>E:\dev\src\python\qgis3\qLidar\libCppOldOSGeo4W/geoids_lastools/EGM08_REDNAP_25830.laz</Value>
+        <Value>E:/dev/build/debug/geoids_lastools/EGM08_REDNAP_25830.laz</Value>
     </Parameter>
     <Parameter>
         <Command>Classify ground from photogrammetry</Command>
@@ -609,7 +595,7 @@
         <Description>Grid size, spatial resolution, of DTM. 0.2 for uav lidar, 2.0 for PNOA-LIDAR</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>0.05</Value>
+        <Value>0.10</Value>
         <MaximumValue>2.00</MaximumValue>
         <MinimumValue>0.00</MinimumValue>
         <PrintPrecision>2</PrintPrecision>
@@ -707,7 +693,7 @@
         <Description>Shapefile for clipping (Polygon)</Description>
         <PrintSize>200</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>D:/qLidarProjects/IncendioLietor2016/data/roi/DelimitacionFotoInterpretadaPNOA2018.shp</Value>
+        <Value>C:/CursoCEDEX3D/CasosPracticos/LineaElectrica/roi_25830.shp</Value>
     </Parameter>
     <Parameter>
         <Command>lasclip64</Command>
@@ -786,13 +772,13 @@
     <Parameter>
         <Command>lasmerge64</Command>
         <Code>lasmerge_keep_classes</Code>
-        <Enabled>Yes</Enabled>
+        <Enabled>No</Enabled>
         <Tag>-keep_class</Tag>
         <Type>Text</Type>
         <Description>Classes to keep outside removing area, separated by a space. Disabled for all</Description>
         <PrintSize>10</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>2 4 5</Value>
+        <Value>2</Value>
     </Parameter>
     <Parameter>
         <Command>lastile64</Command>
