@@ -1,0 +1,7 @@
+Point Cloud File Management Project
+- Number of processes ......................................# 1
+- Process (CREATE_PCFM,ADD_PCFILE,ADD_ROI,WRITE_PCFS) ......# ADD_PCFILES
+  - PoinCloudFileManager path ..............................# "D:/qLidarProjects/puerto_calpe"
+  - CRS (libCRS/EPSG/proj4/wkt) ............................# 25831+5782
+  - Number of files ........................................# 1
+  - File ...................................................# "D:/MetashapeProjects/20221028_Puertocalpe/Productos_geomaticos/20221028_Puertocalpe.laz"
