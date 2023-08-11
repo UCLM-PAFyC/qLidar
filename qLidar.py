@@ -69,12 +69,23 @@ os.environ["PATH"] += os.pathsep + libCppPath
 
 qLidarDockWidget = None
 IPyPC3DProject = None
-if projVersionMajor < 8:
+if qGisSecondVersion < 28:
+    if projVersionMajor < 8:
+        from .qLidar_dockwidget import qLidarDockWidget
+        from libCppOldOSGeo4W.libPyPointCloud3D import IPyPC3DProject
+    else:
+        from .qLidar_dockwidget import qLidarDockWidget
+        from libCpp.libPyPointCloud3D import IPyPC3DProject
+else: # de momento no se si falla con versiones superiores a 3.28
     from .qLidar_dockwidget import qLidarDockWidget
-    from libCppOldOSGeo4W.libPyPointCloud3D import IPyPC3DProject
-else:
-    from .qLidar_dockwidget import qLidarDockWidget
-    from libCpp.libPyPointCloud3D import IPyPC3DProject
+    from libCppOSGeo4W_3_28_9.libPyPointCloud3D import IPyPC3DProject
+#
+# if projVersionMajor < 8:
+#     from .qLidar_dockwidget import qLidarDockWidget
+#     from libCppOldOSGeo4W.libPyPointCloud3D import IPyPC3DProject
+# else:
+#     from .qLidar_dockwidget import qLidarDockWidget
+#     from libCpp.libPyPointCloud3D import IPyPC3DProject
 
 from . import qLidarDefinitions
 
