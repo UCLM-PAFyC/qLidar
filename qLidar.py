@@ -79,7 +79,7 @@ if qGisSecondVersion < 28:
 else: # de momento no se si falla con versiones superiores a 3.28
     from .qLidar_dockwidget import qLidarDockWidget
     from libCppOSGeo4W_3_28_9.libPyPointCloud3D import IPyPC3DProject
-#
+
 # if projVersionMajor < 8:
 #     from .qLidar_dockwidget import qLidarDockWidget
 #     from libCppOldOSGeo4W.libPyPointCloud3D import IPyPC3DProject
