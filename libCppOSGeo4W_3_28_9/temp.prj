@@ -1,7 +1,14 @@
 Point Cloud File Management Project
-- Number of processes ......................................# 1
-- Process (CREATE_PCFM,ADD_PCFILE,ADD_ROI,WRITE_PCFS) ......# ADD_PCFILES
-  - PoinCloudFileManager path ..............................# "D:/qLidarProjects/puerto_calpe"
-  - CRS (libCRS/EPSG/proj4/wkt) ............................# 25831+5782
-  - Number of files ........................................# 1
-  - File ...................................................# "D:/MetashapeProjects/20221028_Puertocalpe/Productos_geomaticos/20221028_Puertocalpe.laz"
+- Number of processes ......................................# 2
+- Process (CREATE_PCF,ADD_POINTCLOUD,ADD_ROI,WRITE_PCFS) ...# CREATE_PCF
+  - PoinCloudFileManager path ..............................# "D:/Aicedrone/20230125_Rail/qLidar"
+  - Database CRS (libCRS/EPSG/proj4/wkt) ...................# 25830
+    Height type (EPSG,ORTHOMETRIC_HEIGHT,ELLIPSOID_HEIGHT) .# 5782
+  - Grid size ..............................................# 5.0
+  - Project Type (Generic,PowerLine,SolarPark) .............# generic
+  - Project parameters (par1@v@value1@p@par2@v@value2...) ..# Author@v@David Hernandez@p@Color@v@true@p@ColorBytes@v@1@p@Company@v@UCLM@p@GpsTime@v@false@p@Intensity@v@true@p@Nir@v@false@p@Return@v@false@p@Returns@v@false@p@SourceId@v@false@p@UserData@v@false
+- Process (CREATE_PCF,ADD_POINTCLOUD,ADD_ROI,WRITE_PCFS) ...# ADD_ROI
+  - PoinCloudFileManager path ..............................# "D:/Aicedrone/20230125_Rail/qLidar"
+  - ROI File ...............................................# "D:/Aicedrone/20230125_Rail/DatosAuxiliares/roi.shp"
+    Field id (None for all features ) ......................# None
+      Field id values (separed by ; ignored si None) .......# 

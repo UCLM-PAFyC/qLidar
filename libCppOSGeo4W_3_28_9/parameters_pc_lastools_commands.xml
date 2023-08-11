@@ -380,7 +380,7 @@
         <Description>Output tile size</Description>
         <PrintSize>20</PrintSize>
         <Unit>meters</Unit>
-        <Value>50.00</Value>
+        <Value>1000.00</Value>
         <MaximumValue>10000.00</MaximumValue>
         <MinimumValue>5.00</MinimumValue>
         <PrintPrecision>2</PrintPrecision>
@@ -508,7 +508,7 @@
         <Description>Empty base path for auxiliary temporal folders</Description>
         <PrintSize>200</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>C:/temp/rover_balazote/temp</Value>
+        <Value>C:/temp/pruebas_lastool-terrasolid/temp</Value>
     </Parameter>
     <Parameter>
         <Command>Classify ground from photogrammetry</Command>
@@ -693,7 +693,7 @@
         <Description>Shapefile for clipping (Polygon)</Description>
         <PrintSize>200</PrintSize>
         <Unit>adimensional</Unit>
-        <Value>D:/MetashapeProjects/IncendioLietor2016/pnoa2015/roi/DelimitacionFotoInterpretadaPNOA2018.shp</Value>
+        <Value>D:/Aicedrone/20230125_Rail/DatosAuxiliares/roi_1.shp</Value>
     </Parameter>
     <Parameter>
         <Command>lasclip64</Command>
