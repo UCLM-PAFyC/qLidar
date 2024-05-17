@@ -44,8 +44,8 @@ qGisThirdVersion = int(strThirdVersionItems[0])
 #     msgBox.exec_()
 # else:
 #     raise ValueError('Invalid QGIS version')
-if qGisFirstVersion == 3 and qGisSecondVersion == 28 and qGisThirdVersion !=9:
-    raise ValueError('For QGIS 3.28 only is valid 3.28.9')
+# if qGisFirstVersion == 3 and qGisSecondVersion == 28 and qGisThirdVersion !=9:
+#     raise ValueError('For QGIS 3.28 only is valid 3.28.9')
 
 from osgeo import osr
 projVersionMajor = osr.GetPROJVersionMajor()
