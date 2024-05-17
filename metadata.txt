@@ -5,7 +5,6 @@
 # is no longer supported since version  2.0.
 
 # This file should be included when you package your plugin.# Mandatory items:
-
 [general]
 name=qLidar
 qgisMinimumVersion=3.4
