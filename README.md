@@ -2,7 +2,8 @@
 
 ## A plugin to use in QGIS point clouds from LIDAR or Photogrammetry
 
-[https://github.com/UCLM-PAFyC/qLidar](https://github.com/UCLM-PAFyC/qLidar)
+This plugin only works in Windows and QGIS version 3.28.9:
+https://download.osgeo.org/qgis/win64/QGIS-OSGeo4W-3.28.9-1.msi
 
 ## **David Hernández López**
 
@@ -21,13 +22,6 @@ ORCID, [https://orcid.org/0000-0001-9874-5243](https://orcid.org/0000-0001-9874-
 UCLM - PAFyC, [http://pafyc.uclm.es](http://pafyc.uclm.es)
 
 USAL - TIDOP, [http://tidop.usal.es](http://tidop.usal.es)
-
-
-Beta version: 0.6, Minimum QGIS version: 3.4. Tested 3.4 - 3.22.3. 
-
-This version works for standalone installers: MSI and dependencies from old osgeo
-
-Operating system: Windows 10
 
 3D viewer is based on PcdViewer:
 https://3d.bk.tudelft.nl/liangliang/software.html
