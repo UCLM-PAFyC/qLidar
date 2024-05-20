@@ -35,7 +35,7 @@ Please report any bugs and enhancement ideas by email: david.hernandez@uclm.es
 
 Contact the author to request any custom development or migration to other operating systems 
 
-Current funcionalities:
+Current functionalities:
 - Create Project
 - Import point cloud files (LAS/LAZ) selecting attributes
 - Edit point classes using 2D/3D tools or values for attribute class_new changed with any QGIS' tool
